@@ -1,7 +1,7 @@
 Final Project Proposal  
 
 **Snake** :snake:  
-Similar to the classic game snake [link](https://www.google.com/search?q=snake&oq=snake&aqs=edge..69i57j69i60l2j0j0i433l2j0.709j0j1&sourceid=chrome&ie=UTF-8)
+Similar to the classic game [snake](https://www.google.com/search?q=snake&oq=snake&aqs=edge..69i57j69i60l2j0j0i433l2j0.709j0j1&sourceid=chrome&ie=UTF-8)
 * Why do you want to do this project?
     * I have always liked the game snake but I want to make
     my own version of this classic game
