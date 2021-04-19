@@ -1,0 +1,8 @@
+//
+// Created by hp on 4/19/2021.
+//
+
+#ifndef FINAL_PROJECT_SKU6_SNAKE_H
+#define FINAL_PROJECT_SKU6_SNAKE_H
+
+#endif //FINAL_PROJECT_SKU6_SNAKE_H
