@@ -11,5 +11,4 @@ void Snake::addPart() {
 size_t Snake::GetSize() {
   return size_;
 }
-}
-
+}  // namespace snake
