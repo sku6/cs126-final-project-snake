@@ -1,0 +1,4 @@
+C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-debug/CMakeFiles/final-project-sku6.dir
+C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-debug/CMakeFiles/final-project-test.dir
+C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-debug/CMakeFiles/rebuild_cache.dir

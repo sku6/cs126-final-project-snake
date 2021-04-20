@@ -1,8 +1,18 @@
-//
-// Created by hp on 4/19/2021.
-//
+#pragma warning(disable : 4819)
+#pragma once
 
-#ifndef FINAL_PROJECT_SKU6_SNAKE_H
-#define FINAL_PROJECT_SKU6_SNAKE_H
+namespace snake {
+class Snake {
+ public:
+  /**
+   * Constructor
+   */
+  Snake();
 
-#endif //FINAL_PROJECT_SKU6_SNAKE_H
+  /**
+   * Adds a new part to the end of the snake once the snake eats food
+   */
+  void addPart();
+};
+}  // namespace snake
+

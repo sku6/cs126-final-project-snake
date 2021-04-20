@@ -1,8 +1,4 @@
-//
-// Created by hp on 4/19/2021.
-//
+#pragma warning(disable : 4819)
+#pragma once
 
-#ifndef FINAL_PROJECT_SKU6_DIRECTION_H
-#define FINAL_PROJECT_SKU6_DIRECTION_H
 
-#endif //FINAL_PROJECT_SKU6_DIRECTION_H
