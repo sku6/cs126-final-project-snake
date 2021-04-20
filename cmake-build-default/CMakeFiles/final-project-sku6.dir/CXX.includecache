@@ -10,13 +10,9 @@
 cinder/gl/gl.h
 ../include/cinder/gl/gl.h
 
-../include/direction.h
-
-../include/location.h
-
-../include/snake.h
-
 ../include/snake_app.h
+boarder.h
+../include/boarder.h
 cinder/app/App.h
 ../include/cinder/app/App.h
 cinder/app/RendererGl.h
@@ -8105,22 +8101,6 @@ C:/Users/hp/Cinder/include/glm/detail/func_vector_relational.inl
 C:/Users/hp/Cinder/my-projects/final-project-sku6/apps/final_project_main.cc
 snake_app.h
 C:/Users/hp/Cinder/my-projects/final-project-sku6/apps/snake_app.h
-
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/boarder.cc
-boarder.h
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/boarder.h
-
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/direction.cc
-direction.h
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/direction.h
-
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/location.cc
-location.h
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/location.h
-
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/snake.cc
-snake.h
-C:/Users/hp/Cinder/my-projects/final-project-sku6/src/snake.h
 
 C:/Users/hp/Cinder/my-projects/final-project-sku6/src/snake_app.cc
 snake_app.h

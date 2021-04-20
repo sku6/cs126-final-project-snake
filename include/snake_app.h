@@ -1,27 +1,31 @@
 #pragma warning(disable : 4819)
 #pragma once
 
+#include "boarder.h"
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
-namespace idealgas {
+namespace snake {
 
 /**
  * An app for visualizing the behavior of an ideal gas.
  */
-class IdealGasApp : public ci::app::App {
+class SnakeApp : public ci::app::App {
  public:
+  SnakeApp();
 
   void draw() override;
   void update() override;
 
  private:
-  // provided that you can see the entire UI on your screen.
-  const int kWindowSize = 1800;
-  const int kHistogramMargin = 50;
-  const int kHistogramSideLength = 275;
-  const int kHistogramSideWidth = 400;
+  const size_t kWindowSize = 800;
+  const size_t kTopLeftX = 100;
+  const size_t kTopLeftY = 100;
+  const size_t kBottomRightX = 700;
+  const size_t kBottomRightY = 700;
+
+  Boarder boarder_;
 };
 
-}  // namespace idealgas
+}  // namespace snake
