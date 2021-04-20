@@ -72,11 +72,10 @@ ci_make_app(
         LIBRARIES       catch2
 )
 
-#if(MSVC)
-#    set_property(TARGET final-project-test APPEND_STRING PROPERTY LINK_FLAGS " /SUBSYSTEM:CONSOLE")
-#endif()
-
-set_property(TARGET
-        final-project-test
-        PROPERTY
-        MSVC_RUNTIME_LIBRARY "MultiThreadedDebugDLL")
+if(MSVC)
+    set_property(TARGET final-project-test APPEND_STRING PROPERTY LINK_FLAGS " /SUBSYSTEM:CONSOLE")
+    set_property(TARGET
+            final-project-test
+            PROPERTY
+            MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+endif()
