@@ -24,7 +24,7 @@ namespace snake {
    */
    void AdvanceOneFrame();
 
-   Snake GetSnake();
+   Snake& GetSnake();
 
   private:
    // Create container

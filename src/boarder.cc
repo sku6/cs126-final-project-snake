@@ -23,7 +23,7 @@ void Boarder::AdvanceOneFrame() {
 
 }
 
-Snake Boarder::GetSnake() {
+Snake& Boarder::GetSnake(){
   return snake_;
 }
 
