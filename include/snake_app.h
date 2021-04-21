@@ -17,6 +17,7 @@ class SnakeApp : public ci::app::App {
 
   void draw() override;
   void update() override;
+  void keyDown(ci::app::KeyEvent event) override;
 
  private:
   const size_t kWindowSize = 800;
