@@ -31,20 +31,20 @@ glm::vec2 Snake::GetPosition() const {
   return position_;
 }
 
-void Snake::MoveUp() {
-  position_ = vec2(GetPosition().x, GetPosition().y+1);
+void Snake::MoveUp(){
+  position_ = vec2(GetPosition().x, GetPosition().y-kMoveIncrement);
 }
 
-void Snake::MoveDown() {
-  position_ = vec2(GetPosition().x, GetPosition().y-1);
+void Snake::MoveDown(){
+  position_ = vec2(GetPosition().x, GetPosition().y+kMoveIncrement);
 }
 
-void Snake::MoveLeft() {
-  position_ = vec2(GetPosition().x-1, GetPosition().y);
+void Snake::MoveLeft(){
+  position_ = vec2(GetPosition().x-kMoveIncrement, GetPosition().y);
 }
 
 void Snake::MoveRight() {
-  position_ = vec2(GetPosition().x+1, GetPosition().y);
+  position_ = vec2(GetPosition().x+kMoveIncrement, GetPosition().y);
 }
 
 int Snake::GenerateRandomNumberBetween(int lower_bound, int upper_bound) {
