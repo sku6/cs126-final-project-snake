@@ -31,17 +31,17 @@ void SnakeApp::keyDown(ci::app::KeyEvent event) {
 
     case ci::app::KeyEvent::KEY_LEFT:
       // make snake move up
-      boarder_.GetSnake().MoveUp();
+      boarder_.GetSnake().MoveLeft();
       break;
 
     case ci::app::KeyEvent::KEY_RIGHT:
       // make snake move up
-      boarder_.GetSnake().MoveUp();
+      boarder_.GetSnake().MoveRight();
       break;
 
     case ci::app::KeyEvent::KEY_DOWN:
       // make snake move up
-      boarder_.GetSnake().MoveUp();
+      boarder_.GetSnake().MoveDown();
       break;
   }
 }
