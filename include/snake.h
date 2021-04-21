@@ -16,6 +16,26 @@ class Snake {
    */
   void addPart();
 
+  /**
+   * Make the snake move upwards
+   */
+  void MoveUp();
+
+  /**
+   * Make the snake move downwards
+   */
+  void MoveDown();
+
+  /**
+   * Make the snake move to the left
+   */
+  void MoveLeft();
+
+  /**
+   * Make the snake move to the right
+   */
+  void MoveRight();
+
   size_t GetSize() const;
   ci::Color GetColor() const;
   glm::vec2 GetPosition() const;
