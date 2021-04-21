@@ -7,11 +7,11 @@
 namespace snake {
  class Boarder {
   public:
-   /**
-    * Using the top left corner and the bottom right corner to create a box for the snake game
-    */
+       /**
+        * Using the top left corner and the bottom right corner to create a box for the snake game
+        */
    Boarder(const glm::vec2& top_left_corner,
-           const glm::vec2& bottom_right_corner, Snake snake);
+           const glm::vec2& bottom_right_corner);
 
    /**
    * Displays the container walls and the current positions of the particles.
@@ -24,22 +24,7 @@ namespace snake {
    */
    void AdvanceOneFrame();
 
-   /**
-    * A helper method that generates a random number between the two given
-    * boundaries
-    *
-    * Code from:
-    * https://stackoverflow.com/questions/19238403/random-function-generator-between-two-integers-c
-    * @param lower_bound The lower bound of the random number generated
-    * @param upper_bound The upper bound of the random number generated
-    * @return An integer between the boundaries given
-    */
-   int GenerateRandomNumberBetween(int lower_bound, int upper_bound);
-
-   /**
-   * Create a snake in the box
-   */
-   void CreateSnake();
+   Snake GetSnake();
 
   private:
    // Create container
@@ -48,7 +33,7 @@ namespace snake {
    glm::vec2 container_top_left_corner_;
 
    // Create Snake
-   Snake snake_;
+   Snake snake_; // This calls default constructor
    const float snake_width_ = 10.0f;
 
  };

@@ -3,11 +3,9 @@ using glm::vec2;
 
 namespace snake {
 snake::Boarder::Boarder(const glm::vec2& top_left_corner,
-                        const glm::vec2& bottom_right_corner, Snake snake)
-    : snake_(snake) {
+                        const glm::vec2& bottom_right_corner) {
   container_top_left_corner_ = top_left_corner;
   container_bottom_right_corner_ = bottom_right_corner;
-  CreateSnake();
 }
 
 void Boarder::Display() const {
@@ -24,13 +22,16 @@ void Boarder::Display() const {
 void Boarder::AdvanceOneFrame() {
 
 }
-int Boarder::GenerateRandomNumberBetween(int lower_bound, int upper_bound) {
-  int randomBetween = (rand() % (upper_bound - lower_bound) + 1) + lower_bound;
-  return randomBetween;
+
+Snake Boarder::GetSnake() {
+  return snake_;
 }
 
-void Boarder::CreateSnake() {
-  snake_ = Snake(vec2(GenerateRandomNumberBetween(101, 699),
-                      GenerateRandomNumberBetween(101, 699)));
-}
+//Boarder::Boarder(const Boarder (*)(const glm::vec2&, const glm::vec2&)) : container_bottom_right_corner_(bottom_right_corner),
+//container_top_left_corner_(top_left_corner), snake_(CreateSnake){
+//  container_top_left_corner_ = top_left_corner;
+//  container_bottom_right_corner_ = bottom_right_corner;
+//  snake_ = Snake(vec2(GenerateRandomNumberBetween(101, 699),
+//                      GenerateRandomNumberBetween(101, 699)));
+//}
 }  // namespace snake
