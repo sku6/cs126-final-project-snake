@@ -12,6 +12,11 @@ class Snake {
   Snake(const glm::vec2& position);
 
   /**
+   * Default constructor
+   */
+  Snake();
+
+  /**
    * Adds a new part to the end of the snake once the snake eats food
    */
   void addPart();
@@ -35,6 +40,15 @@ class Snake {
    * Make the snake move to the right
    */
   void MoveRight();
+
+  /**
+ * A helper method that generates a random number between the two given
+ * boundaries
+ * @param lower_bound The lower bound of the random number generated
+ * @param upper_bound The upper bound of the random number generated
+ * @return An integer between the boundaries given
+ */
+  int GenerateRandomNumberBetween(int lower_bound, int upper_bound);
 
   size_t GetSize() const;
   ci::Color GetColor() const;
