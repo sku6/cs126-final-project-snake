@@ -5,7 +5,7 @@ using glm::vec2;
 namespace snake {
 
 SnakeApp::SnakeApp()
-    : boarder_(Boarder(vec2(kTopLeftX, kTopLeftY),
+    : boarder_(Border(vec2(kTopLeftX, kTopLeftY),
                        vec2(kBottomRightX, kBottomRightY))) {
   ci::app::setWindowSize(kWindowSize, kWindowSize);
 }

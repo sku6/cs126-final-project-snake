@@ -53,7 +53,7 @@ list(APPEND SOURCE_FILES    src/snake.cc
                             src/location.cc
                             src/direction.cc
                             src/snake_app.cc
-                            src/boarder.cc)
+        src/border.cc)
 
 list(APPEND TEST_FILES tests/test.cc)
 

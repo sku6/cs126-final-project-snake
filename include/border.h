@@ -5,12 +5,12 @@
 #include "snake.h"
 
 namespace snake {
- class Boarder {
+ class Border {
   public:
        /**
         * Using the top left corner and the bottom right corner to create a box for the snake game
         */
-   Boarder(const glm::vec2& top_left_corner,
+   Border(const glm::vec2& top_left_corner,
            const glm::vec2& bottom_right_corner);
 
    /**

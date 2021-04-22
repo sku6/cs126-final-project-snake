@@ -156,23 +156,23 @@ CMakeFiles\final-project-test.dir\src\snake_app.cc.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\final-project-test.dir\src\snake_app.cc.s /c C:\Users\hp\Cinder\my-projects\final-project-sku6\src\snake_app.cc
 <<
 
-CMakeFiles\final-project-test.dir\src\boarder.cc.obj: CMakeFiles\final-project-test.dir\flags.make
-CMakeFiles\final-project-test.dir\src\boarder.cc.obj: ..\src\boarder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\hp\Cinder\my-projects\final-project-sku6\cmake-build-default\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/final-project-test.dir/src/boarder.cc.obj"
+CMakeFiles\final-project-test.dir\src\border.cc.obj: CMakeFiles\final-project-test.dir\flags.make
+CMakeFiles\final-project-test.dir\src\border.cc.obj: ..\src\border.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\hp\Cinder\my-projects\final-project-sku6\cmake-build-default\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/final-project-test.dir/src/border.cc.obj"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\final-project-test.dir\src\boarder.cc.obj /FdCMakeFiles\final-project-test.dir\ /FS -c C:\Users\hp\Cinder\my-projects\final-project-sku6\src\boarder.cc
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\final-project-test.dir\src\border.cc.obj /FdCMakeFiles\final-project-test.dir\ /FS -c C:\Users\hp\Cinder\my-projects\final-project-sku6\src\border.cc
 <<
 
-CMakeFiles\final-project-test.dir\src\boarder.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/final-project-test.dir/src/boarder.cc.i"
-	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\final-project-test.dir\src\boarder.cc.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\hp\Cinder\my-projects\final-project-sku6\src\boarder.cc
+CMakeFiles\final-project-test.dir\src\border.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/final-project-test.dir/src/border.cc.i"
+	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\final-project-test.dir\src\border.cc.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\hp\Cinder\my-projects\final-project-sku6\src\border.cc
 <<
 
-CMakeFiles\final-project-test.dir\src\boarder.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/final-project-test.dir/src/boarder.cc.s"
+CMakeFiles\final-project-test.dir\src\border.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/final-project-test.dir/src/border.cc.s"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\final-project-test.dir\src\boarder.cc.s /c C:\Users\hp\Cinder\my-projects\final-project-sku6\src\boarder.cc
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\final-project-test.dir\src\border.cc.s /c C:\Users\hp\Cinder\my-projects\final-project-sku6\src\border.cc
 <<
 
 CMakeFiles\final-project-test.dir\tests\test.cc.obj: CMakeFiles\final-project-test.dir\flags.make
@@ -201,7 +201,7 @@ final__project__test_OBJECTS = \
 "CMakeFiles\final-project-test.dir\src\location.cc.obj" \
 "CMakeFiles\final-project-test.dir\src\direction.cc.obj" \
 "CMakeFiles\final-project-test.dir\src\snake_app.cc.obj" \
-"CMakeFiles\final-project-test.dir\src\boarder.cc.obj" \
+"CMakeFiles\final-project-test.dir\src\border.cc.obj" \
 "CMakeFiles\final-project-test.dir\tests\test.cc.obj"
 
 # External object files for target final-project-test
@@ -212,7 +212,7 @@ Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.d
 Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\src\location.cc.obj
 Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\src\direction.cc.obj
 Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\src\snake_app.cc.obj
-Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\src\boarder.cc.obj
+Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\src\border.cc.obj
 Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\tests\test.cc.obj
 Debug\final-project-test\final-project-test.exe: CMakeFiles\final-project-test.dir\build.make
 Debug\final-project-test\final-project-test.exe: C:\Users\hp\Cinder\lib\msw\x86\Debug\v140\cinder.lib

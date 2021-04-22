@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/final-project-sku6.dir/apps/final_project_main.cc.obj"
-  "CMakeFiles/final-project-sku6.dir/src/boarder.cc.obj"
+  "CMakeFiles/final-project-sku6.dir/src/border.cc.obj"
   "CMakeFiles/final-project-sku6.dir/src/direction.cc.obj"
   "CMakeFiles/final-project-sku6.dir/src/location.cc.obj"
   "CMakeFiles/final-project-sku6.dir/src/snake.cc.obj"

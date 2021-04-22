@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/hp/Cinder/my-projects/final-project-sku6/apps/final_project_main.cc" "C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir/apps/final_project_main.cc.obj"
-  "C:/Users/hp/Cinder/my-projects/final-project-sku6/src/boarder.cc" "C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir/src/boarder.cc.obj"
+  "C:/Users/hp/Cinder/my-projects/final-project-sku6/src/border.cc" "C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir/src/border.cc.obj"
   "C:/Users/hp/Cinder/my-projects/final-project-sku6/src/direction.cc" "C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir/src/direction.cc.obj"
   "C:/Users/hp/Cinder/my-projects/final-project-sku6/src/location.cc" "C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir/src/location.cc.obj"
   "C:/Users/hp/Cinder/my-projects/final-project-sku6/src/snake.cc" "C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir/src/snake.cc.obj"

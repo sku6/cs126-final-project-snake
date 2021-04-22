@@ -167,35 +167,35 @@ apps\final_project_main.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\apps\final_project_main.cc.s
 .PHONY : apps\final_project_main.cc.s
 
-src\boarder.obj: src\boarder.cc.obj
+src\border.obj: src\border.cc.obj
 
-.PHONY : src\boarder.obj
+.PHONY : src\border.obj
 
 # target to build an object file
-src\boarder.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\src\boarder.cc.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-test.dir\src\boarder.cc.obj
-.PHONY : src\boarder.cc.obj
+src\border.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\src\border.cc.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-test.dir\src\border.cc.obj
+.PHONY : src\border.cc.obj
 
-src\boarder.i: src\boarder.cc.i
+src\border.i: src\border.cc.i
 
-.PHONY : src\boarder.i
+.PHONY : src\border.i
 
 # target to preprocess a source file
-src\boarder.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\src\boarder.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-test.dir\src\boarder.cc.i
-.PHONY : src\boarder.cc.i
+src\border.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\src\border.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-test.dir\src\border.cc.i
+.PHONY : src\border.cc.i
 
-src\boarder.s: src\boarder.cc.s
+src\border.s: src\border.cc.s
 
-.PHONY : src\boarder.s
+.PHONY : src\border.s
 
 # target to generate assembly for a file
-src\boarder.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\src\boarder.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-test.dir\src\boarder.cc.s
-.PHONY : src\boarder.cc.s
+src\border.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-sku6.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-sku6.dir\src\border.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\final-project-test.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\final-project-test.dir\src\border.cc.s
+.PHONY : src\border.cc.s
 
 src\direction.obj: src\direction.cc.obj
 
@@ -384,9 +384,9 @@ help:
 	@echo ... apps/final_project_main.obj
 	@echo ... apps/final_project_main.i
 	@echo ... apps/final_project_main.s
-	@echo ... src/boarder.obj
-	@echo ... src/boarder.i
-	@echo ... src/boarder.s
+	@echo ... src/border.obj
+	@echo ... src/border.i
+	@echo ... src/border.s
 	@echo ... src/direction.obj
 	@echo ... src/direction.i
 	@echo ... src/direction.s
