@@ -28,7 +28,7 @@ namespace snake {
 
    /**
     * Make sure snake does not collied into the wall
-    * Game over if it does
+    * Game over if the snake does
     */
    bool HasSnakeColliedWithWall();
 
