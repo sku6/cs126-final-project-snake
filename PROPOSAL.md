@@ -16,7 +16,7 @@ Similar to the classic game [snake](https://www.google.com/search?q=snake&oq=sna
         * Use keyboard to move the snake
     * Week 2
         * Make the snake move by itself 
-        * Create Treats that randomly pops up, 
+        * Create Treat that randomly pops up, 
           use cute image online
         * Extend the length of the snake if it eats a treat
         * Create a score board
@@ -26,7 +26,7 @@ Similar to the classic game [snake](https://www.google.com/search?q=snake&oq=sna
           * Deduct points when hit an obstacle
         * Game ends if score is 0    
         * Speeds up the game after 15 points
-            * Treats disappears faster
+            * Treat disappears faster
             * Obstacle stays in the container for longer
         * Test cases to make sure the game runs smoothly  
 * Stretch goals
