@@ -20,6 +20,9 @@ void Border::Display() const {
 }
 
 void Border::AdvanceOneFrame() {
+  if (HasSnakeColliedWithWall()) {
+    return;
+  }
   if(snake_direction_ == Direction::kUp) {
     snake_.SetPosition(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement()));
   } else if (snake_direction_ == Direction::kDown) {
@@ -38,5 +41,21 @@ Snake& Border::GetSnake(){
 
 void Border::SetDirection(Direction direction) {
   snake_direction_ = direction;
+}
+bool Border::HasSnakeColliedWithWall() {
+  if (snake_.GetPosition().x <= container_top_left_corner_.x) {
+    // check if it hits the left wall
+    return true;
+  } else if (snake_.GetPosition().x >= container_bottom_right_corner_.x) {
+    // check if it hits the right wall
+    return true;
+  } else if (snake_.GetPosition().y >= container_bottom_right_corner_.y) {
+    // check if it hits the bottom wall
+    return true;
+  } else if(snake_.GetPosition().y <= container_top_left_corner_.y) {
+    // check if it hits the top wall
+    return true;
+  }
+  return false;
 }
 }  // namespace snake

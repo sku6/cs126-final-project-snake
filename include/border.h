@@ -25,7 +25,14 @@ namespace snake {
    */
    void AdvanceOneFrame();
 
+   /**
+    * Make sure snake does not collied into the wall
+    * Game over if it does
+    */
+   bool HasSnakeColliedWithWall();
+
    Snake& GetSnake();
+
    void SetDirection(Direction direction);
 
   private:
