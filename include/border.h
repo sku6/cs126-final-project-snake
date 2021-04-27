@@ -3,6 +3,7 @@
 
 #include "cinder/gl/gl.h"
 #include "snake.h"
+#include "direction.h"
 
 namespace snake {
  class Border {
@@ -25,6 +26,7 @@ namespace snake {
    void AdvanceOneFrame();
 
    Snake& GetSnake();
+   void SetDirection(Direction direction);
 
   private:
    // Create container
@@ -36,5 +38,7 @@ namespace snake {
    Snake snake_; // This calls default constructor
    const float snake_width_ = 10.0f;
 
+   // Direction of the snake
+   Direction snake_direction_;
  };
 }
