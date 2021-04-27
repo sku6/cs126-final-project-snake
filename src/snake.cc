@@ -31,6 +31,14 @@ glm::vec2 Snake::GetPosition() const {
   return position_;
 }
 
+size_t Snake::GetKMoveIncrement() const {
+  return kMoveIncrement;
+}
+
+void Snake::SetPosition(glm::vec2 position) {
+  position_ = position;
+}
+
 void Snake::MoveUp(){
   position_ = vec2(GetPosition().x, GetPosition().y-kMoveIncrement);
 }

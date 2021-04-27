@@ -53,14 +53,15 @@ class Snake {
   size_t GetSize() const;
   ci::Color GetColor() const;
   glm::vec2 GetPosition() const;
+  size_t GetKMoveIncrement() const;
 
-  //void SetPosition(glm::vec2 position);
+  void SetPosition(glm::vec2 position);
 
  private:
   size_t size_;
   const char* kSnakeColor = "green";
   glm::vec2 position_;
-  size_t kMoveIncrement = 5;
+  size_t kMoveIncrement = 1;
 };
 }  // namespace snake
 
