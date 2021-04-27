@@ -17,6 +17,10 @@ void Border::Display() const {
   // Draw snake
   ci::gl::color(ci::Color(snake_.GetColor()));
   ci::gl::drawSolidCircle(snake_.GetPosition(), snake_width_);
+
+  // Draw Treats
+  ci::gl::color(ci::Color(treat_.GetColor()));
+  ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
 }
 
 void Border::AdvanceOneFrame() {
@@ -32,7 +36,6 @@ void Border::AdvanceOneFrame() {
   } else {
     snake_.SetPosition(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(), snake_.GetPosition().y));
   }
-
 }
 
 Snake& Border::GetSnake(){

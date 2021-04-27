@@ -2,8 +2,9 @@
 #pragma once
 
 #include "cinder/gl/gl.h"
-#include "snake.h"
 #include "direction.h"
+#include "snake.h"
+#include "treat.h"
 
 namespace snake {
  class Border {
@@ -47,5 +48,9 @@ namespace snake {
 
    // Direction of the snake
    Direction snake_direction_;
+
+   // Create Treats
+   Treat treat_;
+   const float treat_radius_ = 5.0f;
  };
 }
