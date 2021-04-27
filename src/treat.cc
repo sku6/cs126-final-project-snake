@@ -6,4 +6,10 @@ namespace snake {
 Treat::Treat() {
   position_ = vec2(Utilities::GenerateRandomNumberBetween(101, 699),Utilities::GenerateRandomNumberBetween(101, 699));
 }
+ci::Color Treat::GetColor() const {
+  return kTreatColor;
+}
+glm::vec2 Treat::GetPosition() const {
+  return position_;
+}
 }
