@@ -20,6 +20,15 @@ void Border::Display() const {
 }
 
 void Border::AdvanceOneFrame() {
+  if(snake_direction_ == Direction::kUp) {
+    snake_.SetPosition(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement()));
+  } else if (snake_direction_ == Direction::kDown) {
+    snake_.SetPosition(vec2(snake_.GetPosition().x, snake_.GetPosition().y+snake_.GetKMoveIncrement()));
+  } else if (snake_direction_ == Direction::kLeft) {
+    snake_.SetPosition(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(), snake_.GetPosition().y));
+  } else {
+    snake_.SetPosition(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(), snake_.GetPosition().y));
+  }
 
 }
 
@@ -27,11 +36,7 @@ Snake& Border::GetSnake(){
   return snake_;
 }
 
-//Border::Border(const Border (*)(const glm::vec2&, const glm::vec2&)) : container_bottom_right_corner_(bottom_right_corner),
-//container_top_left_corner_(top_left_corner), snake_(CreateSnake){
-//  container_top_left_corner_ = top_left_corner;
-//  container_bottom_right_corner_ = bottom_right_corner;
-//  snake_ = Snake(vec2(GenerateRandomNumberBetween(101, 699),
-//                      GenerateRandomNumberBetween(101, 699)));
-//}
+void Border::SetDirection(Direction direction) {
+  snake_direction_ = direction;
+}
 }  // namespace snake
