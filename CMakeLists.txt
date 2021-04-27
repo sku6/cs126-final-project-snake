@@ -50,10 +50,11 @@ get_filename_component(APP_PATH "${CMAKE_CURRENT_SOURCE_DIR}/" ABSOLUTE)
 include("${CINDER_PATH}/proj/cmake/modules/cinderMakeApp.cmake")
 
 list(APPEND SOURCE_FILES    src/snake.cc
-                            src/location.cc
+                            src/utilities.cc
                             src/direction.cc
                             src/snake_app.cc
-                            src/border.cc)
+                            src/border.cc
+                            src/treat.cc)
 
 list(APPEND TEST_FILES tests/test.cc)
 
