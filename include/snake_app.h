@@ -26,7 +26,7 @@ class SnakeApp : public ci::app::App {
   const size_t kBottomRightX = 700;
   const size_t kBottomRightY = 700;
 
-  Border boarder_;
+  Border border_;
 };
 
 }  // namespace snake
