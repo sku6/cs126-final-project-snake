@@ -11,13 +11,11 @@ Similar to the classic game [snake](https://www.google.com/search?q=snake&oq=sna
 
 * Timeline
     * Week 1
-        * Create container boundaries that allows 
-        the snake to move through the walls
-            * Right wall connects to the left wall;
-                Top wall connects to the bottom wall
+        * Create container boundaries that stops the after snake collied with it
         * Create snake
         * Use keyboard to move the snake
     * Week 2
+        * Make the snake move by itself 
         * Create Treats that randomly pops up, 
           use cute image online
         * Extend the length of the snake if it eats a treat
