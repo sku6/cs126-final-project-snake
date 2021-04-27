@@ -18,7 +18,7 @@ namespace snake {
    /**
    * Displays the container walls and the current positions of the particles.
    */
-   void Display() const;
+   void Display();
 
    /**
    * Updates the positions and velocities of all particles (based on the rules
@@ -31,6 +31,11 @@ namespace snake {
     * Game over if it does
     */
    bool HasSnakeColliedWithWall();
+
+   /**
+    * Update the variable is_game_over_
+    */
+   void IsGameOver();
 
    Snake& GetSnake();
 
@@ -51,6 +56,11 @@ namespace snake {
 
    // Create Treats
    Treat treat_;
-   const float treat_radius_ = 5.0f;
+   const float treat_radius_ = 8.0f;
+
+   // Game over text
+   const std::string kGameOverText = "Game Over!";
+   const char* kTextColor = "white";
+   bool is_game_over_ = false;
  };
 }

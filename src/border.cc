@@ -8,7 +8,7 @@ snake::Border::Border(const glm::vec2& top_left_corner,
   container_bottom_right_corner_ = bottom_right_corner;
 }
 
-void Border::Display() const {
+void Border::Display() {
   // Draw the container
   ci::gl::color(ci::Color(kContainerColor));
   ci::gl::drawStrokedRect(
@@ -21,10 +21,20 @@ void Border::Display() const {
   // Draw Treats
   ci::gl::color(ci::Color(treat_.GetColor()));
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
+
+  if (is_game_over_) {
+    // Display Game over text
+    ci::gl::drawStringCentered(
+        kGameOverText,
+        glm::vec2((container_top_left_corner_.x + container_bottom_right_corner_.x) / 2,
+                  (container_top_left_corner_.y + container_bottom_right_corner_.y) / 2),
+        kTextColor, ci::Font("", 50.0f));
+  }
 }
 
 void Border::AdvanceOneFrame() {
-  if (HasSnakeColliedWithWall()) {
+  IsGameOver();
+  if (is_game_over_) {
     return;
   }
   if(snake_direction_ == Direction::kUp) {
@@ -60,5 +70,10 @@ bool Border::HasSnakeColliedWithWall() {
     return true;
   }
   return false;
+}
+void Border::IsGameOver() {
+  if (HasSnakeColliedWithWall()) {
+    is_game_over_ = true;
+  }
 }
 }  // namespace snake
