@@ -13,6 +13,13 @@ class Treat {
    */
   Treat();
 
+  /**
+   * Create a new position for the treat
+   * Increment score
+   * @return New position for the treat
+   */
+  glm::vec2 SetNewPosition();
+
   ci::Color GetColor() const;
   glm::vec2 GetPosition() const;
   void SetColor(char* color);
