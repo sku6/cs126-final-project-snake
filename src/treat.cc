@@ -12,4 +12,8 @@ ci::Color Treat::GetColor() const {
 glm::vec2 Treat::GetPosition() const {
   return position_;
 }
+void Treat::SetColor(char* color) {
+  kTreatColor = color;
+}
+
 }
