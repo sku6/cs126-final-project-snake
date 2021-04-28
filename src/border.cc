@@ -6,9 +6,17 @@ snake::Border::Border(const glm::vec2& top_left_corner,
                         const glm::vec2& bottom_right_corner) {
   container_top_left_corner_ = top_left_corner;
   container_bottom_right_corner_ = bottom_right_corner;
+  score_ = 0;
 }
 
 void Border::Display() {
+  // Display score
+  ci::gl::drawStringCentered(
+      kScoreText + std::to_string(score_),
+      glm::vec2((container_top_left_corner_.x + container_bottom_right_corner_.x) / 2,
+                container_top_left_corner_.y - kMargin),
+      kTextColor, ci::Font("", 50.0f));
+
   // Draw the container
   ci::gl::color(ci::Color(kContainerColor));
   ci::gl::drawStrokedRect(
@@ -24,7 +32,7 @@ void Border::Display() {
 
   // Turn the treat to background color after being eaten
   if (HasSnakeEatenTreat()) {
-    //treat_.SetColor(const_cast<char*>(kBackgroundColor));
+    ++score_;
     ci::gl::color(ci::Color(treat_.GetColor()));
     ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
   }
