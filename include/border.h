@@ -76,6 +76,8 @@ namespace snake {
    bool is_game_over_ = false;
 
    // Track player's score
+   const std::string kScoreText = "Score: ";
+   const float kMargin = 70.0f;
    size_t score_;
  };
 }
