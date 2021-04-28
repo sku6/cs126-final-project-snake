@@ -21,8 +21,12 @@ void Border::Display() {
   // Draw Treats
   ci::gl::color(ci::Color(treat_.GetColor()));
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
+
+  // Turn the treat to background color after being eaten
   if (HasSnakeEatenTreat()) {
-    treat_.SetColor("green");
+    //treat_.SetColor(const_cast<char*>(kBackgroundColor));
+    ci::gl::color(ci::Color(treat_.GetColor()));
+    ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
   }
 
   if (is_game_over_) {
@@ -76,7 +80,7 @@ bool Border::HasSnakeColliedWithWall() {
 }
 
 bool Border::HasSnakeEatenTreat() {
-  if (snake_.GetPosition() == treat_.GetPosition()) {
+  if (Utilities::GetDistance(snake_.GetPosition(), treat_.GetPosition()) <= kGameFlexibilityConstant) {
     return true;
   }
   return false;
