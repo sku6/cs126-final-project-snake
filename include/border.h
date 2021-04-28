@@ -49,7 +49,12 @@ namespace snake {
    void SetDirection(Direction direction);
 
   private:
+   // Determine how precise do we want the game to be
+   // In other words, how close do we need the snake to be with the treat in order to eat it
+   const size_t kGameFlexibilityConstant = 8;
+
    // Create container
+   const char* kBackgroundColor = "black";
    const char* kContainerColor = "white";
    glm::vec2 container_bottom_right_corner_;
    glm::vec2 container_top_left_corner_;
