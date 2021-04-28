@@ -33,6 +33,13 @@ namespace snake {
    bool HasSnakeColliedWithWall();
 
    /**
+    * Check if the snake has eaten a treat, the treat should disappear after being eaten
+    * Score should go up by 1
+    * @return
+    */
+   bool HasSnakeEatenTreat();
+
+   /**
     * Update the variable is_game_over_
     */
    void IsGameOver();
@@ -62,5 +69,8 @@ namespace snake {
    const std::string kGameOverText = "Game Over!";
    const char* kTextColor = "white";
    bool is_game_over_ = false;
+
+   // Track player's score
+   size_t score_;
  };
 }

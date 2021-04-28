@@ -21,6 +21,9 @@ void Border::Display() {
   // Draw Treats
   ci::gl::color(ci::Color(treat_.GetColor()));
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
+  if (HasSnakeEatenTreat()) {
+    treat_.SetColor("green");
+  }
 
   if (is_game_over_) {
     // Display Game over text
@@ -71,6 +74,14 @@ bool Border::HasSnakeColliedWithWall() {
   }
   return false;
 }
+
+bool Border::HasSnakeEatenTreat() {
+  if (snake_.GetPosition() == treat_.GetPosition()) {
+    return true;
+  }
+  return false;
+}
+
 void Border::IsGameOver() {
   if (HasSnakeColliedWithWall()) {
     is_game_over_ = true;
