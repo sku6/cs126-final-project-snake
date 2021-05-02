@@ -3,6 +3,7 @@
 
 #include <cinder/Color.h>
 #include "utilities.h"
+#include "extension.h"
 
 namespace snake {
 class Snake {
