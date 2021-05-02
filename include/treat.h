@@ -1,7 +1,6 @@
 #pragma warning(disable : 4819)
 #pragma once
 
-#include <glm/vec2.hpp>
 #include <cinder/Color.h>
 #include "utilities.h"
 
