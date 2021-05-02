@@ -1,8 +1,0 @@
-//
-// Created by hp on 5/2/2021.
-//
-
-#ifndef FINAL_PROJECT_SKU6_SEGMENT_H
-#define FINAL_PROJECT_SKU6_SEGMENT_H
-
-#endif  // FINAL_PROJECT_SKU6_SEGMENT_H
