@@ -37,6 +37,12 @@ void Border::Display() {
     ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
   }
 
+  // Draw extensions
+  for (auto & extension : extensions) {
+    ci::gl::color(ci::Color("blue"));
+    ci::gl::drawSolidCircle(extension.GetPosition(), snake_width_);
+  }
+
   if (is_game_over_) {
     // Display Game over text
     ci::gl::drawStringCentered(
@@ -52,6 +58,19 @@ void Border::AdvanceOneFrame() {
   if (is_game_over_) {
     return;
   }
+
+  if (HasSnakeEatenTreat()) {
+    if(snake_direction_ == Direction::kUp) {
+      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement())));
+    } else if (snake_direction_ == Direction::kDown) {
+      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y+snake_.GetKMoveIncrement())));
+    } else if (snake_direction_ == Direction::kLeft) {
+      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x-snake_.GetKMoveIncrement(), snake_.GetPosition().y)));
+    } else {
+      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x+snake_.GetKMoveIncrement(), snake_.GetPosition().y)));
+    }
+  }
+
   if(snake_direction_ == Direction::kUp) {
     snake_.SetPosition(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement()));
   } else if (snake_direction_ == Direction::kDown) {

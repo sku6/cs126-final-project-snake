@@ -5,6 +5,7 @@
 #include "direction.h"
 #include "snake.h"
 #include "treat.h"
+#include "extension.h"
 
 namespace snake {
  class Border {
@@ -62,6 +63,9 @@ namespace snake {
    // Create Snake
    Snake snake_; // This calls default constructor
    const float snake_width_ = 10.0f;
+
+   // Create extensions
+   std::vector<Extension> extensions;
 
    // Direction of the snake
    Direction snake_direction_;
