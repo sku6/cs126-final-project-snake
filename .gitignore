@@ -1,0 +1,6 @@
+# CMake builds
+/cmake-build-default/
+/cmake-build-debug/
+
+# IDEA
+/.idea/

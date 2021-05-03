@@ -1,7 +1,7 @@
 #pragma warning(disable : 4819)
 #pragma once
 
-#include "boarder.h"
+#include "border.h"
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
@@ -26,7 +26,7 @@ class SnakeApp : public ci::app::App {
   const size_t kBottomRightX = 700;
   const size_t kBottomRightY = 700;
 
-  Boarder boarder_;
+  Border border_;
 };
 
 }  // namespace snake

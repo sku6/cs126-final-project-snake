@@ -1,4 +1,0 @@
-C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-sku6.dir
-C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/final-project-test.dir
-C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/edit_cache.dir
-C:/Users/hp/Cinder/my-projects/final-project-sku6/cmake-build-default/CMakeFiles/rebuild_cache.dir
