@@ -14,7 +14,7 @@ namespace snake {
         * Using the top left corner and the bottom right corner to create a box for the snake game
         */
    Border(const glm::vec2& top_left_corner,
-           const glm::vec2& bottom_right_corner);
+           const glm::vec2& bottom_right_corner, Snake snake);
 
    /**
    * Displays the container walls and the current positions of the particles.

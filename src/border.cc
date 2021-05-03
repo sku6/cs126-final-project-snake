@@ -3,10 +3,11 @@ using glm::vec2;
 
 namespace snake {
 snake::Border::Border(const glm::vec2& top_left_corner,
-                        const glm::vec2& bottom_right_corner) {
+                        const glm::vec2& bottom_right_corner, Snake snake) {
   container_top_left_corner_ = top_left_corner;
   container_bottom_right_corner_ = bottom_right_corner;
   score_ = 0;
+  snake_ = snake;
 }
 
 void Border::Display() {
