@@ -46,3 +46,23 @@ TEST_CASE("Check snake colliding with the wall") {
     REQUIRE(border.HasSnakeColliedWithWall() == false);
   }
 }
+
+TEST_CASE("Check if game is over") {
+  // Set container boundaries
+  vec2 top_left(100, 100);
+  vec2 bottom_right(700, 700);
+
+  SECTION("Game is over after snake collies with a wall") {
+    snake::Snake snake(vec2(200, 100));
+    Border border(top_left, bottom_right, snake);
+    border.AdvanceOneFrame();
+    REQUIRE(border.IsGameOver() == true);
+  }
+
+  SECTION("Game is not over") {
+    snake::Snake snake(vec2(200, 200));
+    Border border(top_left, bottom_right, snake);
+    border.AdvanceOneFrame();
+    REQUIRE(border.IsGameOver() == false);
+  }
+}
