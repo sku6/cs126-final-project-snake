@@ -114,9 +114,10 @@ bool Border::HasSnakeEatenTreat() {
   return false;
 }
 
-void Border::IsGameOver() {
+bool Border::IsGameOver() {
   if (HasSnakeColliedWithWall()) {
     is_game_over_ = true;
   }
+  return is_game_over_;
 }
 }  // namespace snake

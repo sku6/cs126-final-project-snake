@@ -43,7 +43,7 @@ namespace snake {
    /**
     * Update the variable is_game_over_
     */
-   void IsGameOver();
+   bool IsGameOver();
 
    Snake& GetSnake();
 
