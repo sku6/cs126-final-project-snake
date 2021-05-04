@@ -26,7 +26,6 @@ class Treat {
 
   ci::Color GetColor() const;
   glm::vec2 GetPosition() const;
-  void SetColor(char* color);
 
  private:
   glm::vec2 position_;
