@@ -19,7 +19,7 @@ class Treat {
 
   /**
    * Create a new position for the treat
-   * Increment score
+   * Increment score if snake eats an obstacle
    * @return New position for the treat
    */
   glm::vec2 SetNewPosition();
