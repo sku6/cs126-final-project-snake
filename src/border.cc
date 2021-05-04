@@ -183,7 +183,7 @@ bool Border::HasSnakeEatenTreat() {
 }
 
 bool Border::HasSnakeHitObstacle() {
-  for (size_t i = 0; i < kNumberOfObstacles; ++i) {
+  for (size_t i = 0; i < obstacles_.size(); ++i) {
     if (Utilities::GetDistance(
             snake_.GetPosition(),
             vec2(obstacles_[i].GetPosition().x + KObstacleSideLength / 2,
