@@ -121,6 +121,7 @@ void Border::AdvanceOneFrame() {
 
   // If player press on the keyboard direction keys snake and extension segments move in that direction
   if (snake_direction_ == Direction::kUp) {
+    snake_current_location = snake_.GetPosition();
     snake_.MoveUp();
     for (auto & extension : extensions_) {
       extension.MoveUp();
@@ -141,6 +142,11 @@ void Border::AdvanceOneFrame() {
       extension.MoveRight();
     }
   }
+//  for (auto & extension : extensions_) {
+//    vec2 temp = extension.GetPosition();
+//    extension.SetPosition(snake_current_location);
+//    snake_current_location = temp;
+//    }
 }
 
 void Border::SetDirection(Direction direction) {
@@ -176,6 +182,15 @@ bool Border::HasSnakeHitObstacle() const {
                  obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
         kGameFlexibilityConstant * 4) {
       return true;
+    }
+    for (auto & extension : extensions_) {
+      if (Utilities::GetDistance(
+          extension.GetPosition(),
+          vec2(obstacle.GetPosition().x + KObstacleSideLength / 2,
+               obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
+          kGameFlexibilityConstant * 4) {
+        return true;
+      }
     }
   }
   return false;
