@@ -97,7 +97,6 @@ namespace snake {
 
    // Create Obstacles
    std::vector<Obstacle> obstacles_;
-   //Obstacle obstacle_;
    const float KObstacleSideLength = 40.0f;
    const size_t kNumberOfObstacles = 3;
 
