@@ -16,6 +16,15 @@ snake::Border::Border(const glm::vec2& top_left_corner,
   snake_ = snake;
 }
 
+Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
+               Snake snake, Treat treat) {
+  container_top_left_corner_ = top_left_corner;
+  container_bottom_right_corner_ = bottom_right_corner;
+  score_ = 0;
+  snake_ = snake;
+  treat_ = treat;
+}
+
 void Border::Display() {
   // Display score
   ci::gl::drawStringCentered(

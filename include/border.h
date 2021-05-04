@@ -16,12 +16,20 @@ namespace snake {
     */
    Border(const glm::vec2& top_left_corner,
           const glm::vec2& bottom_right_corner);
+
    /**
     * Using the top left corner and the bottom right corner to create a box for
     * the snake game, taking in a snake as a parameter
     */
    Border(const glm::vec2& top_left_corner,
            const glm::vec2& bottom_right_corner, Snake snake);
+
+   /**
+    * Using the top left corner and the bottom right corner to create a box for
+    * the snake game, taking in a snake and a treat as a parameter
+    */
+   Border(const glm::vec2& top_left_corner,
+          const glm::vec2& bottom_right_corner, Snake snake, Treat treat);
 
    /**
    * Displays the container walls and the current positions of the particles.
