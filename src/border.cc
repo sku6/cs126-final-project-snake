@@ -123,30 +123,33 @@ void Border::AdvanceOneFrame() {
   if (snake_direction_ == Direction::kUp) {
     snake_current_location = snake_.GetPosition();
     snake_.MoveUp();
-    for (auto & extension : extensions_) {
-      extension.MoveUp();
-    }
-  } else if (snake_direction_ == Direction::kDown) {
-    snake_.MoveDown();
-    for (auto & extension : extensions_) {
-      extension.MoveDown();
-    }
-  } else if (snake_direction_ == Direction::kLeft) {
-    snake_.MoveLeft();
-    for (auto & extension : extensions_) {
-      extension.MoveLeft();
-    }
-  } else {
-    snake_.MoveRight();
-    for (auto & extension : extensions_) {
-      extension.MoveRight();
-    }
-  }
-//  for (auto & extension : extensions_) {
-//    vec2 temp = extension.GetPosition();
-//    extension.SetPosition(snake_current_location);
-//    snake_current_location = temp;
+//    for (auto & extension : extensions_) {
+//      extension.MoveUp();
 //    }
+  } else if (snake_direction_ == Direction::kDown) {
+    snake_current_location = snake_.GetPosition();
+    snake_.MoveDown();
+//    for (auto & extension : extensions_) {
+//      extension.MoveDown();
+//    }
+  } else if (snake_direction_ == Direction::kLeft) {
+    snake_current_location = snake_.GetPosition();
+    snake_.MoveLeft();
+//    for (auto & extension : extensions_) {
+//      extension.MoveLeft();
+//    }
+  } else {
+    snake_current_location = snake_.GetPosition();
+    snake_.MoveRight();
+//    for (auto & extension : extensions_) {
+//      extension.MoveRight();
+//    }
+  }
+  for (auto & extension : extensions_) {
+    vec2 temp = extension.GetPosition();
+    extension.SetPosition(snake_current_location);
+    snake_current_location = temp;
+    }
 }
 
 void Border::SetDirection(Direction direction) {
@@ -194,6 +197,15 @@ bool Border::HasSnakeHitObstacle() const {
     }
   }
   return false;
+}
+
+bool Border::HasSnakeHitItself() {
+  for (auto & extension : extensions_) {
+    if (Utilities::GetDistance(extension.GetPosition(), snake_.GetPosition()) <= 1) {
+      return true;
+    }
+  }
+  return true;
 }
 
 bool Border::IsGameOver() {
