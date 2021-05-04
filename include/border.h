@@ -106,7 +106,8 @@ class Border {
   Direction snake_direction_;
 
   // Save snake head or segment's current location
-  glm::vec2 snake_current_location;
+  glm::vec2 snake_current_location_;
+
 
   // Create Treats
   Treat treat_;

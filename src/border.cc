@@ -121,23 +121,23 @@ void Border::AdvanceOneFrame() {
 
   // If player press on the keyboard direction keys snake and extension segments move in that direction
   if (snake_direction_ == Direction::kUp) {
-    snake_current_location = snake_.GetPosition();
+    snake_current_location_ = snake_.GetPosition();
     snake_.MoveUp();
   } else if (snake_direction_ == Direction::kDown) {
-    snake_current_location = snake_.GetPosition();
+    snake_current_location_ = snake_.GetPosition();
     snake_.MoveDown();
   } else if (snake_direction_ == Direction::kLeft) {
-    snake_current_location = snake_.GetPosition();
+    snake_current_location_ = snake_.GetPosition();
     snake_.MoveLeft();
   } else {
-    snake_current_location = snake_.GetPosition();
+    snake_current_location_ = snake_.GetPosition();
     snake_.MoveRight();
   }
   // Make the extensions follow the snake
   for (auto & extension : extensions_) {
     vec2 temp = extension.GetPosition();
-    extension.SetPosition(snake_current_location);
-    snake_current_location = temp;
+    extension.SetPosition(snake_current_location_);
+    snake_current_location_ = temp;
     }
 }
 
