@@ -67,8 +67,8 @@ void Border::Display() {
     ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
   }
 
-  // Draw extensions
-  for (auto & extension : extensions) {
+  // Draw extensions_
+  for (auto & extension : extensions_) {
     ci::gl::color(ci::Color("blue"));
     ci::gl::drawSolidCircle(extension.GetPosition(), snake_width_);
   }
@@ -92,13 +92,13 @@ void Border::AdvanceOneFrame() {
   if (HasSnakeEatenTreat()) {
     ++score_;
     if(snake_direction_ == Direction::kUp) {
-      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement())));
+      extensions_.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement())));
     } else if (snake_direction_ == Direction::kDown) {
-      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y+snake_.GetKMoveIncrement())));
+      extensions_.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y+snake_.GetKMoveIncrement())));
     } else if (snake_direction_ == Direction::kLeft) {
-      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x-snake_.GetKMoveIncrement(), snake_.GetPosition().y)));
+      extensions_.emplace_back(Extension(vec2(snake_.GetPosition().x-snake_.GetKMoveIncrement(), snake_.GetPosition().y)));
     } else {
-      extensions.emplace_back(Extension(vec2(snake_.GetPosition().x+snake_.GetKMoveIncrement(), snake_.GetPosition().y)));
+      extensions_.emplace_back(Extension(vec2(snake_.GetPosition().x+snake_.GetKMoveIncrement(), snake_.GetPosition().y)));
     }
   }
 

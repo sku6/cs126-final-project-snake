@@ -80,9 +80,8 @@ namespace snake {
    Snake snake_; // This calls default constructor
    const float snake_width_ = 10.0f;
 
-   // Create extensions
-   //TODO: rename this
-   std::vector<Extension> extensions;
+   // Create extensions_
+   std::vector<Extension> extensions_;
 
    // Direction of the snake
    Direction snake_direction_;
