@@ -28,6 +28,15 @@ Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
   treat_ = treat;
 }
 
+Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
+               Snake snake, Obstacle obstacle) {
+  container_top_left_corner_ = top_left_corner;
+  container_bottom_right_corner_ = bottom_right_corner;
+  score_ = 0;
+  snake_ = snake;
+  obstacles_.push_back(obstacle);
+}
+
 void Border::Display() {
   // Display score
   ci::gl::drawStringCentered(
