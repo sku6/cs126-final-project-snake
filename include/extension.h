@@ -11,7 +11,7 @@ class Extension {
    */
   Extension(const glm::vec2 position);
 
-  glm::vec2 GetPosition();
+  glm::vec2 GetPosition() const;
   void SetPosition(const glm::vec2 position);
 
  private:
