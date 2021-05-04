@@ -30,5 +30,6 @@ class Obstacle {
  private:
   glm::vec2 position_;
   const char* kObstacleColor = "blue";
+  const size_t KObstacleSideLength = 40;
 };
 }
