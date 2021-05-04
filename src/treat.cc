@@ -20,7 +20,8 @@ glm::vec2 Treat::GetPosition() const {
 }
 
 glm::vec2 Treat::SetNewPosition() {
-  position_ = vec2(Utilities::GenerateRandomNumberBetween(101, 699),Utilities::GenerateRandomNumberBetween(101, 699));
+  position_ = vec2(Utilities::GenerateRandomNumberBetween(101, 699),
+                   Utilities::GenerateRandomNumberBetween(101, 699));
   return position_;
 }
 }

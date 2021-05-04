@@ -1,6 +1,7 @@
-#include <catch2/catch.hpp>
 #include <border.h>
 #include <snake.h>
+
+#include <catch2/catch.hpp>
 
 using glm::vec2;
 using snake::Border;
@@ -74,7 +75,7 @@ TEST_CASE("Check if snake eats the treat properly") {
   snake::Snake snake(vec2(200, 200));
 
   SECTION("Snake eats a treat, increment score") {
-    snake::Treat treat(vec2(200,200));
+    snake::Treat treat(vec2(200, 200));
     Border border(top_left, bottom_right, snake, treat);
     border.AdvanceOneFrame();
     REQUIRE(border.HasSnakeEatenTreat() == true);
@@ -82,7 +83,7 @@ TEST_CASE("Check if snake eats the treat properly") {
   }
 
   SECTION("Snake does not eat the treat") {
-    snake::Treat treat(vec2(300,200));
+    snake::Treat treat(vec2(300, 200));
     Border border(top_left, bottom_right, snake, treat);
     border.AdvanceOneFrame();
     REQUIRE(border.HasSnakeEatenTreat() == false);

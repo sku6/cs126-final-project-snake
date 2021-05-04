@@ -2,6 +2,7 @@
 #pragma once
 
 #include <cinder/Color.h>
+
 #include "utilities.h"
 
 namespace snake {
@@ -31,4 +32,4 @@ class Treat {
   glm::vec2 position_;
   const char* kTreatColor = "red";
 };
-}
+}  // namespace snake

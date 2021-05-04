@@ -17,4 +17,4 @@ class Extension {
  private:
   glm::vec2 position_;
 };
-}
+}  // namespace snake

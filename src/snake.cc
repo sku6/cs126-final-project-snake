@@ -6,7 +6,8 @@ namespace snake {
 
 Snake::Snake() {
   size_ = 1;
-  position_ = vec2(Utilities::GenerateRandomNumberBetween(101, 699),Utilities::GenerateRandomNumberBetween(101, 699));
+  position_ = vec2(Utilities::GenerateRandomNumberBetween(101, 699),
+                   Utilities::GenerateRandomNumberBetween(101, 699));
 }
 
 Snake::Snake(const vec2& position) {

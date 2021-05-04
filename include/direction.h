@@ -11,4 +11,4 @@ enum class Direction {
   kLeft,
   kRight,
 };
-}
+}  // namespace snake
