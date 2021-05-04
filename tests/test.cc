@@ -78,6 +78,7 @@ TEST_CASE("Check if snake eats the treat properly") {
     Border border(top_left, bottom_right, snake, treat);
     border.AdvanceOneFrame();
     REQUIRE(border.HasSnakeEatenTreat() == true);
+    REQUIRE(border.GetScore() == 1);
   }
 
   SECTION("Snake does not eat the treat") {
@@ -85,5 +86,6 @@ TEST_CASE("Check if snake eats the treat properly") {
     Border border(top_left, bottom_right, snake, treat);
     border.AdvanceOneFrame();
     REQUIRE(border.HasSnakeEatenTreat() == false);
+    REQUIRE(border.GetScore() == 0);
   }
 }
