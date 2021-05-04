@@ -7,7 +7,7 @@ namespace snake {
 
 SnakeApp::SnakeApp()
     : border_(Border(vec2(kTopLeftX, kTopLeftY),
-                       vec2(kBottomRightX, kBottomRightY), Snake(vec2(Utilities::GenerateRandomNumberBetween(101, 699),Utilities::GenerateRandomNumberBetween(101, 699))))) {
+                       vec2(kBottomRightX, kBottomRightY))) {
   ci::app::setWindowSize(kWindowSize, kWindowSize);
 }
 
