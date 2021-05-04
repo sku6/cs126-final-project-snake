@@ -108,7 +108,6 @@ class Border {
   // Save snake head or segment's current location
   glm::vec2 snake_current_location_;
 
-
   // Create Treats
   Treat treat_;
   const float treat_radius_ = 8.0f;
