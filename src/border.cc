@@ -83,10 +83,6 @@ void Border::AdvanceOneFrame() {
   }
 }
 
-Snake& Border::GetSnake(){
-  return snake_;
-}
-
 void Border::SetDirection(Direction direction) {
   snake_direction_ = direction;
 }
@@ -119,5 +115,13 @@ bool Border::IsGameOver() {
     is_game_over_ = true;
   }
   return is_game_over_;
+}
+
+Snake& Border::GetSnake(){
+  return snake_;
+}
+
+size_t Border::GetScore() {
+  return score_;
 }
 }  // namespace snake

@@ -45,9 +45,10 @@ namespace snake {
     */
    bool IsGameOver();
 
-   Snake& GetSnake();
-
    void SetDirection(Direction direction);
+
+   Snake& GetSnake();
+   size_t GetScore();
 
   private:
    // Determine how precise do we want the game to be
