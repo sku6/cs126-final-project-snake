@@ -90,3 +90,28 @@ TEST_CASE("Check if snake eats the treat properly") {
     REQUIRE(border.GetScore() == 0);
   }
 }
+
+TEST_CASE("Check if snake collies with the obstacle") {
+  // Set container boundaries
+  vec2 top_left(100, 100);
+  vec2 bottom_right(700, 700);
+  snake::Snake snake(vec2(200, 200));
+
+  SECTION("Snake collides with an obstacle, decrement score") {
+    snake::Obstacle obstacle(vec2(200, 200));
+    Border border(top_left, bottom_right, snake, obstacle);
+    border.AdvanceOneFrame();
+    REQUIRE(border.HasSnakeHitObstacle() == true);
+    REQUIRE(border.GetScore() == -1);
+    REQUIRE(border.IsGameOver() == true);
+  }
+
+  SECTION("Snake does not collide with an obstacle") {
+    snake::Obstacle obstacle(vec2(300, 200));
+    Border border(top_left, bottom_right, snake, obstacle);
+    border.AdvanceOneFrame();
+    REQUIRE(border.HasSnakeHitObstacle() == false);
+    REQUIRE(border.GetScore() == 0);
+    REQUIRE(border.IsGameOver() == false);
+  }
+}
