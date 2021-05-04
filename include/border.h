@@ -3,9 +3,10 @@
 
 #include "cinder/gl/gl.h"
 #include "direction.h"
+#include "extension.h"
+#include "obstacle.h"
 #include "snake.h"
 #include "treat.h"
-#include "extension.h"
 
 namespace snake {
  class Border {
@@ -80,6 +81,7 @@ namespace snake {
    const float snake_width_ = 10.0f;
 
    // Create extensions
+   //TODO: rename this
    std::vector<Extension> extensions;
 
    // Direction of the snake
@@ -88,6 +90,11 @@ namespace snake {
    // Create Treats
    Treat treat_;
    const float treat_radius_ = 8.0f;
+
+   // Create Obstacles
+   //std::vector<Obstacle> obstacles_;
+   Obstacle obstacle_;
+   const float obstacle_side_length_ = 40.0f;
 
    // Game over text
    const std::string kGameOverText = "Game Over!";

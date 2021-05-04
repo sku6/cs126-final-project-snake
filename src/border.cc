@@ -33,18 +33,32 @@ void Border::Display() {
                 container_top_left_corner_.y - kMargin),
       kTextColor, ci::Font("", 50.0f));
 
-  // Draw the container
+  // Display the container
   ci::gl::color(ci::Color(kContainerColor));
   ci::gl::drawStrokedRect(
       ci::Rectf(container_top_left_corner_, container_bottom_right_corner_));
 
-  // Draw snake
+  // Display snake
   ci::gl::color(ci::Color(snake_.GetColor()));
   ci::gl::drawSolidCircle(snake_.GetPosition(), snake_width_);
 
-  // Draw Treats
+  // Display Treats
   ci::gl::color(ci::Color(treat_.GetColor()));
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
+
+  // Display obstacles
+  ci::gl::color(ci::Color(obstacle_.GetColor()));
+  ci::gl::drawSolidRect(ci::Rectf(obstacle_.GetPosition(),
+                                    vec2(obstacle_.GetPosition().x + obstacle_side_length_,
+                                         obstacle_.GetPosition().y + obstacle_side_length_)));
+
+//  for (int i = 0; i < obstacles_.size(); i ++) {
+//    ci::gl::color(ci::Color(obstacles_[i].GetColor()));
+//    ci::gl::drawSolidRect(ci::Rectf(obstacles_[i].GetPosition(),
+//                                    vec2(obstacles_[i].GetPosition().x + obstacle_side_length_,
+//                                         obstacles_[i].GetPosition().x + obstacle_side_length_)));
+//  }
+
 
   // Turn the treat to background color after being eaten
   if (HasSnakeEatenTreat()) {
