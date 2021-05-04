@@ -67,6 +67,12 @@ void Border::Display() {
   // Set the Obstacles to a new position after being touched
   if (HasSnakeHitObstacle()) {
     --score_;
+    for (auto & obstacle : obstacles_) {
+      ci::gl::color(ci::Color(obstacle.GetColor()));
+      ci::gl::drawSolidRect(ci::Rectf(obstacle.SetNewPosition(),
+                                      vec2(obstacle.SetNewPosition().x + KObstacleSideLength,
+                                           obstacle.SetNewPosition().y + KObstacleSideLength)));
+    }
   }
 
   // Draw extensions_
