@@ -119,6 +119,7 @@ void Border::AdvanceOneFrame() {
     }
   }
 
+  // If player press on the keyboard direction keys snake and extension segments move in that direction
   if (snake_direction_ == Direction::kUp) {
     snake_.MoveUp();
     for (auto & extension : extensions_) {
