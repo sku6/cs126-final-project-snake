@@ -108,6 +108,7 @@ namespace snake {
    // Track player's score
    const std::string kScoreText = "Score: ";
    const float kMargin = 70.0f;
-   size_t score_;
+   // Using int right here because game ends when it hits a negative score
+   int score_;
  };
 }
