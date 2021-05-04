@@ -123,27 +123,15 @@ void Border::AdvanceOneFrame() {
   if (snake_direction_ == Direction::kUp) {
     snake_current_location = snake_.GetPosition();
     snake_.MoveUp();
-//    for (auto & extension : extensions_) {
-//      extension.MoveUp();
-//    }
   } else if (snake_direction_ == Direction::kDown) {
     snake_current_location = snake_.GetPosition();
     snake_.MoveDown();
-//    for (auto & extension : extensions_) {
-//      extension.MoveDown();
-//    }
   } else if (snake_direction_ == Direction::kLeft) {
     snake_current_location = snake_.GetPosition();
     snake_.MoveLeft();
-//    for (auto & extension : extensions_) {
-//      extension.MoveLeft();
-//    }
   } else {
     snake_current_location = snake_.GetPosition();
     snake_.MoveRight();
-//    for (auto & extension : extensions_) {
-//      extension.MoveRight();
-//    }
   }
   for (auto & extension : extensions_) {
     vec2 temp = extension.GetPosition();
