@@ -1,0 +1,8 @@
+//
+// Created by hp on 5/3/2021.
+//
+
+#ifndef FINAL_PROJECT_SKU6_OBSTACLE_H
+#define FINAL_PROJECT_SKU6_OBSTACLE_H
+
+#endif  // FINAL_PROJECT_SKU6_OBSTACLE_H
