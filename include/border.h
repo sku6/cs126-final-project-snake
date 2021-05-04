@@ -42,7 +42,7 @@ class Border {
   /**
    * Displays the container walls and the current positions of the particles.
    */
-  void Display();
+  void Display() const;
 
   /**
    * Updates the positions and velocities of all particles (based on the rules
@@ -66,7 +66,7 @@ class Border {
    * Check if the snake has hit a obstacle, the obstacle should disappear after
    * being hit Score should decrement by 1
    */
-  bool HasSnakeHitObstacle();
+  bool HasSnakeHitObstacle() const;
 
   /**
    * Update the variable is_game_over_
@@ -75,7 +75,7 @@ class Border {
 
   void SetDirection(Direction direction);
 
-  Snake& GetSnake();
+  const Snake& GetSnake() const;
   size_t GetScore();
 
  private:
