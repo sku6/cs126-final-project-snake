@@ -54,7 +54,9 @@ list(APPEND SOURCE_FILES    src/snake.cc
                             src/direction.cc
                             src/snake_app.cc
                             src/border.cc
-                            src/treat.cc)
+                            src/treat.cc
+                            src/extension.cc
+                            src/obstacle.cc)
 
 list(APPEND TEST_FILES tests/test.cc)
 

@@ -2,47 +2,87 @@
 using glm::vec2;
 
 namespace snake {
-snake::Border::Border(const glm::vec2& top_left_corner,
-                        const glm::vec2& bottom_right_corner) {
+Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner) {
   container_top_left_corner_ = top_left_corner;
   container_bottom_right_corner_ = bottom_right_corner;
   score_ = 0;
+  for (size_t i = 0; i < kNumberOfObstacles; ++i) {
+    obstacles_.emplace_back();
+  }
 }
 
-void Border::Display() {
+snake::Border::Border(const glm::vec2& top_left_corner,
+                      const glm::vec2& bottom_right_corner, Snake snake) {
+  container_top_left_corner_ = top_left_corner;
+  container_bottom_right_corner_ = bottom_right_corner;
+  score_ = 0;
+  snake_ = snake;
+}
+
+Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
+               Snake snake, Treat treat) {
+  container_top_left_corner_ = top_left_corner;
+  container_bottom_right_corner_ = bottom_right_corner;
+  score_ = 0;
+  snake_ = snake;
+  treat_ = treat;
+}
+
+Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
+               Snake snake, Obstacle obstacle) {
+  container_top_left_corner_ = top_left_corner;
+  container_bottom_right_corner_ = bottom_right_corner;
+  score_ = 0;
+  snake_ = snake;
+  obstacles_.push_back(obstacle);
+}
+
+void Border::Display() const {
   // Display score
   ci::gl::drawStringCentered(
       kScoreText + std::to_string(score_),
-      glm::vec2((container_top_left_corner_.x + container_bottom_right_corner_.x) / 2,
-                container_top_left_corner_.y - kMargin),
+      glm::vec2(
+          (container_top_left_corner_.x + container_bottom_right_corner_.x) / 2,
+          container_top_left_corner_.y - kMargin),
       kTextColor, ci::Font("", 50.0f));
 
-  // Draw the container
+  // Display the container
   ci::gl::color(ci::Color(kContainerColor));
   ci::gl::drawStrokedRect(
       ci::Rectf(container_top_left_corner_, container_bottom_right_corner_));
 
-  // Draw snake
+  // Display snake
   ci::gl::color(ci::Color(snake_.GetColor()));
   ci::gl::drawSolidCircle(snake_.GetPosition(), snake_width_);
 
-  // Draw Treats
+  // Display Treats
   ci::gl::color(ci::Color(treat_.GetColor()));
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
 
-  // Turn the treat to background color after being eaten
-  if (HasSnakeEatenTreat()) {
-    ++score_;
-    ci::gl::color(ci::Color(treat_.GetColor()));
-    ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
+  // Display Obstacles
+  for (auto& obstacle : obstacles_) {
+    ci::gl::color(ci::Color(obstacle.GetColor()));
+    ci::gl::drawSolidRect(
+        ci::Rectf(obstacle.GetPosition(),
+                  vec2(obstacle.GetPosition().x + KObstacleSideLength,
+                       obstacle.GetPosition().y + KObstacleSideLength)));
+  }
+
+  // Draw extensions_
+  for (const auto& extension : extensions_) {
+    ci::gl::color(ci::Color(snake_.GetColor()));
+    ci::gl::drawSolidCircle(extension.GetPosition(), snake_width_);
   }
 
   if (is_game_over_) {
     // Display Game over text
     ci::gl::drawStringCentered(
         kGameOverText,
-        glm::vec2((container_top_left_corner_.x + container_bottom_right_corner_.x) / 2,
-                  (container_top_left_corner_.y + container_bottom_right_corner_.y) / 2),
+        glm::vec2(
+            (container_top_left_corner_.x + container_bottom_right_corner_.x) /
+                2,
+            (container_top_left_corner_.y + container_bottom_right_corner_.y) /
+                2),
         kTextColor, ci::Font("", 50.0f));
   }
 }
@@ -52,19 +92,51 @@ void Border::AdvanceOneFrame() {
   if (is_game_over_) {
     return;
   }
-  if(snake_direction_ == Direction::kUp) {
-    snake_.SetPosition(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement()));
-  } else if (snake_direction_ == Direction::kDown) {
-    snake_.SetPosition(vec2(snake_.GetPosition().x, snake_.GetPosition().y+snake_.GetKMoveIncrement()));
-  } else if (snake_direction_ == Direction::kLeft) {
-    snake_.SetPosition(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(), snake_.GetPosition().y));
-  } else {
-    snake_.SetPosition(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(), snake_.GetPosition().y));
-  }
-}
 
-Snake& Border::GetSnake(){
-  return snake_;
+  if (HasSnakeHitObstacle()) {
+    --score_;
+    for (auto& obstacle : obstacles_) {
+      obstacle.SetNewPosition();
+    }
+  }
+
+  if (HasSnakeEatenTreat()) {
+    ++score_;
+    treat_.SetNewPosition();
+    if (snake_direction_ == Direction::kUp) {
+      // vector<Type>.push_back(Type(x, y)) == vector<Type>.emplace_back(x, y)
+      extensions_.emplace_back(vec2(snake_.GetPosition().x,
+                                    snake_.GetPosition().y + kSegmentDistance));
+    } else if (snake_direction_ == Direction::kDown) {
+      extensions_.emplace_back(vec2(snake_.GetPosition().x,
+                                    snake_.GetPosition().y - kSegmentDistance));
+    } else if (snake_direction_ == Direction::kLeft) {
+      extensions_.emplace_back(vec2(snake_.GetPosition().x + kSegmentDistance,
+                                    snake_.GetPosition().y));
+    } else {
+      extensions_.emplace_back(vec2(snake_.GetPosition().x - kSegmentDistance,
+                                    snake_.GetPosition().y));
+    }
+  }
+
+  // If player press on the keyboard direction keys snake and extension segments
+  // move in that direction
+  snake_current_location_ = snake_.GetPosition();
+  if (snake_direction_ == Direction::kUp) {
+    snake_.MoveUp();
+  } else if (snake_direction_ == Direction::kDown) {
+    snake_.MoveDown();
+  } else if (snake_direction_ == Direction::kLeft) {
+    snake_.MoveLeft();
+  } else {
+    snake_.MoveRight();
+  }
+  // Make the extensions follow the snake
+  for (auto& extension : extensions_) {
+    vec2 temp = extension.GetPosition();
+    extension.SetPosition(snake_current_location_);
+    snake_current_location_ = temp;
+  }
 }
 
 void Border::SetDirection(Direction direction) {
@@ -80,7 +152,7 @@ bool Border::HasSnakeColliedWithWall() {
   } else if (snake_.GetPosition().y >= container_bottom_right_corner_.y) {
     // check if it hits the bottom wall
     return true;
-  } else if(snake_.GetPosition().y <= container_top_left_corner_.y) {
+  } else if (snake_.GetPosition().y <= container_top_left_corner_.y) {
     // check if it hits the top wall
     return true;
   }
@@ -88,15 +160,56 @@ bool Border::HasSnakeColliedWithWall() {
 }
 
 bool Border::HasSnakeEatenTreat() {
-  if (Utilities::GetDistance(snake_.GetPosition(), treat_.GetPosition()) <= kGameFlexibilityConstant) {
-    return true;
+  return Utilities::GetDistance(snake_.GetPosition(), treat_.GetPosition()) <=
+         kGameFlexibilityConstant;
+}
+
+bool Border::HasSnakeHitObstacle() const {
+  for (const auto& obstacle : obstacles_) {
+    if (Utilities::GetDistance(
+            snake_.GetPosition(),
+            vec2(obstacle.GetPosition().x + KObstacleSideLength / 2,
+                 obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
+        kGameFlexibilityConstant * 4) {
+      return true;
+    }
+    for (auto& extension : extensions_) {
+      if (Utilities::GetDistance(
+              extension.GetPosition(),
+              vec2(obstacle.GetPosition().x + KObstacleSideLength / 2,
+                   obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
+          kGameFlexibilityConstant * 4) {
+        return true;
+      }
+    }
   }
   return false;
 }
 
-void Border::IsGameOver() {
+bool Border::HasSnakeHitItself() {
+  for (auto& extension : extensions_) {
+    if (Utilities::GetDistance(extension.GetPosition(), snake_.GetPosition()) <=
+        1) {
+      return true;
+    }
+  }
+  return true;
+}
+
+bool Border::IsGameOver() {
   if (HasSnakeColliedWithWall()) {
     is_game_over_ = true;
+  } else if (score_ < 0) {
+    is_game_over_ = true;
   }
+  return is_game_over_;
+}
+
+Snake& Border::GetSnake() {
+  return snake_;
+}
+
+size_t Border::GetScore() {
+  return score_;
 }
 }  // namespace snake

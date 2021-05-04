@@ -1,4 +1,5 @@
 #include "snake_app.h"
+
 #include "direction.h"
 using ci::Color;
 using glm::vec2;
@@ -7,7 +8,7 @@ namespace snake {
 
 SnakeApp::SnakeApp()
     : border_(Border(vec2(kTopLeftX, kTopLeftY),
-                       vec2(kBottomRightX, kBottomRightY))) {
+                     vec2(kBottomRightX, kBottomRightY))) {
   ci::app::setWindowSize(kWindowSize, kWindowSize);
 }
 

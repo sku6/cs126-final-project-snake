@@ -6,22 +6,22 @@
 #include "utilities.h"
 
 namespace snake {
-class Treat {
+class Obstacle {
  public:
   /**
    * Default constructor
    */
-  Treat();
+  Obstacle();
 
   /**
    * Constructor that takes in a vec2 position as parameter
    */
-  Treat(glm::vec2 position);
+  Obstacle(glm::vec2 position);
 
   /**
-   * Create a new position for the treat
-   * Increment score if snake eats an obstacle
-   * @return New position for the treat
+   * Create a new position for the obstacle
+   * Decrement score if snake hits an obstacle
+   * @return New position for the obstacle
    */
   glm::vec2 SetNewPosition();
 
@@ -30,6 +30,7 @@ class Treat {
 
  private:
   glm::vec2 position_;
-  const char* kTreatColor = "red";
+  const char* kObstacleColor = "blue";
+  const size_t KObstacleSideLength = 40;
 };
 }  // namespace snake

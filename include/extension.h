@@ -1,27 +1,23 @@
 #pragma warning(disable : 4819)
 #pragma once
 
-#include <cinder/Color.h>
-
-#include "extension.h"
-#include "utilities.h"
+#include <glm/vec2.hpp>
+#include "snake.h"
 
 namespace snake {
-class Snake {
+class Extension {
  public:
-  /**
-   * Constructor that takes in the position as a parameter
-   */
-  Snake(const glm::vec2& position);
-
   /**
    * Default constructor
    */
-  Snake();
+  Extension(const glm::vec2 position);
+
+  glm::vec2 GetPosition() const;
+  void SetPosition(const glm::vec2 position);
 
   /**
-   * Make the snake move upwards
-   */
+ * Make the snake move upwards
+ */
   void MoveUp();
 
   /**
@@ -39,11 +35,9 @@ class Snake {
    */
   void MoveRight();
 
-  ci::Color GetColor() const;
-  glm::vec2 GetPosition() const;
+  size_t GetKMoveIncrement() const;
 
  private:
-  const char* kSnakeColor = "green";
   glm::vec2 position_;
   size_t kMoveIncrement = 1;
 };

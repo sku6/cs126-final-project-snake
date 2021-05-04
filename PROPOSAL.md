@@ -23,10 +23,7 @@ Similar to the classic game [snake](https://www.google.com/search?q=snake&oq=sna
         * Ends the game if the snake touches its' body
         * Create Obstacles that randomly pops up
           * Deduct points when hit an obstacle
-        * Game ends if score is 0    
-        * Speeds up the game after 15 points
-            * Treat disappears faster
-            * Obstacle stays in the container for longer
+        * Game ends if score is 0
         * Test cases to make sure the game runs smoothly  
     
 * Stretch goals
@@ -36,6 +33,9 @@ Similar to the classic game [snake](https://www.google.com/search?q=snake&oq=sna
       * This might be hard since I need to extend the length
         of the snake after it gets a treat
     * Create a leader board that saves all the game scores
+    * Speeds up the game after 15 points
+        * Treat disappears faster
+        * Obstacle stays in the container for longer
     
     
   
