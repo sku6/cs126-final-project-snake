@@ -37,7 +37,7 @@ Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
   obstacles_.push_back(obstacle);
 }
 
-void Border::Display() {
+void Border::Display() { // TODO: do whatever you must to make this const
   // Display score
   ci::gl::drawStringCentered(
       kScoreText + std::to_string(score_),
@@ -60,11 +60,11 @@ void Border::Display() {
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
 
   // Set the treat to a new position after being eaten
-  if (HasSnakeEatenTreat()) {
-    ++score_;
-    ci::gl::color(ci::Color(treat_.GetColor()));
-    ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
-  }
+//  if (HasSnakeEatenTreat()) {
+//    ++score_;
+//    ci::gl::color(ci::Color(treat_.GetColor()));
+//    ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
+//  }
 
   // Display Obstacles
   for (auto& obstacle : obstacles_) {
@@ -89,8 +89,10 @@ void Border::Display() {
 
   // Draw extensions_
   for (auto& extension : extensions_) {
+    // TODO: Make above const auto&
     ci::gl::color(ci::Color("blue"));
     ci::gl::drawSolidCircle(extension.GetPosition(), snake_width_);
+    // TODO: Make GetPosition() const in header and src
   }
 
   if (is_game_over_) {
@@ -118,20 +120,22 @@ void Border::AdvanceOneFrame() {
 
   if (HasSnakeEatenTreat()) {
     ++score_;
+    treat_.SetNewPosition();
     if (snake_direction_ == Direction::kUp) {
-      extensions_.emplace_back(
+      // vector<Type>.push_back(Type(x, y)) == vector<Type>.emplace_back(x, y)
+      extensions_.push_back(
           Extension(vec2(snake_.GetPosition().x,
                          snake_.GetPosition().y - snake_.GetKMoveIncrement())));
     } else if (snake_direction_ == Direction::kDown) {
-      extensions_.emplace_back(
+      extensions_.push_back(
           Extension(vec2(snake_.GetPosition().x,
                          snake_.GetPosition().y + snake_.GetKMoveIncrement())));
     } else if (snake_direction_ == Direction::kLeft) {
-      extensions_.emplace_back(
+      extensions_.push_back(
           Extension(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
                          snake_.GetPosition().y)));
     } else {
-      extensions_.emplace_back(
+      extensions_.push_back(
           Extension(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
                          snake_.GetPosition().y)));
     }
@@ -175,11 +179,13 @@ bool Border::HasSnakeColliedWithWall() {
 }
 
 bool Border::HasSnakeEatenTreat() {
+  // TODO: You know what to do
   if (Utilities::GetDistance(snake_.GetPosition(), treat_.GetPosition()) <=
       kGameFlexibilityConstant) {
     return true;
+  } else {
+    return false;
   }
-  return false;
 }
 
 bool Border::HasSnakeHitObstacle() {
