@@ -76,6 +76,7 @@ void Border::AdvanceOneFrame() {
   }
 
   if (HasSnakeEatenTreat()) {
+    ++score_;
     if(snake_direction_ == Direction::kUp) {
       extensions.emplace_back(Extension(vec2(snake_.GetPosition().x, snake_.GetPosition().y-snake_.GetKMoveIncrement())));
     } else if (snake_direction_ == Direction::kDown) {
