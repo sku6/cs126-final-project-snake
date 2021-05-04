@@ -70,7 +70,7 @@ void Border::Display() const {
 
   // Draw extensions_
   for (const auto& extension : extensions_) {
-    ci::gl::color(ci::Color("blue"));
+    ci::gl::color(ci::Color(snake_.GetColor()));
     ci::gl::drawSolidCircle(extension.GetPosition(), snake_width_);
   }
 
@@ -106,20 +106,16 @@ void Border::AdvanceOneFrame() {
     if (snake_direction_ == Direction::kUp) {
       // vector<Type>.push_back(Type(x, y)) == vector<Type>.emplace_back(x, y)
       extensions_.emplace_back(
-          vec2(snake_.GetPosition().x,
-               snake_.GetPosition().y - snake_.GetKMoveIncrement()));
+          vec2(snake_.GetPosition().x, snake_.GetPosition().y + kSegmentDistance));
     } else if (snake_direction_ == Direction::kDown) {
       extensions_.emplace_back(
-          vec2(snake_.GetPosition().x,
-               snake_.GetPosition().y + snake_.GetKMoveIncrement()));
+          vec2(snake_.GetPosition().x, snake_.GetPosition().y - kSegmentDistance));
     } else if (snake_direction_ == Direction::kLeft) {
       extensions_.emplace_back(
-          vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
-               snake_.GetPosition().y));
+          vec2(snake_.GetPosition().x + kSegmentDistance, snake_.GetPosition().y));
     } else {
       extensions_.emplace_back(
-          vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
-               snake_.GetPosition().y));
+          vec2(snake_.GetPosition().x - kSegmentDistance, snake_.GetPosition().y));
     }
   }
 
@@ -127,16 +123,28 @@ void Border::AdvanceOneFrame() {
     snake_.SetPosition(
         vec2(snake_.GetPosition().x,
              snake_.GetPosition().y - snake_.GetKMoveIncrement()));
+    for (size_t i = 0; i < extensions_.size(); ++i) {
+      extensions_[i].MoveUp();
+    }
   } else if (snake_direction_ == Direction::kDown) {
     snake_.SetPosition(
         vec2(snake_.GetPosition().x,
              snake_.GetPosition().y + snake_.GetKMoveIncrement()));
+    for (size_t i = 0; i < extensions_.size(); ++i) {
+      extensions_[i].MoveDown();
+    }
   } else if (snake_direction_ == Direction::kLeft) {
     snake_.SetPosition(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
                             snake_.GetPosition().y));
+    for (size_t i = 0; i < extensions_.size(); ++i) {
+      extensions_[i].MoveLeft();
+    }
   } else {
     snake_.SetPosition(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
                             snake_.GetPosition().y));
+    for (size_t i = 0; i < extensions_.size(); ++i) {
+      extensions_[i].MoveRight();
+    }
   }
 }
 
