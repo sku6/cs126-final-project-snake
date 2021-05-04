@@ -18,6 +18,7 @@ class Snake {
    */
   Snake();
 
+  //TODO: delete this
   /**
    * Adds a new part to the end of the snake once the snake eats food
    */
