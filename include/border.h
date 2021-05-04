@@ -51,10 +51,15 @@ namespace snake {
 
    /**
     * Check if the snake has eaten a treat, the treat should disappear after being eaten
-    * Score should go up by 1
-    * @return
+    * Score should increment by 1
     */
    bool HasSnakeEatenTreat();
+
+   /**
+ * Check if the snake has hit a obstacle, the obstacle should disappear after being hit
+ * Score should decrement by 1
+ */
+   bool HasSnakeHitObstacle();
 
    /**
     * Update the variable is_game_over_
@@ -91,9 +96,10 @@ namespace snake {
    const float treat_radius_ = 8.0f;
 
    // Create Obstacles
-   //std::vector<Obstacle> obstacles_;
-   Obstacle obstacle_;
-   const float obstacle_side_length_ = 40.0f;
+   std::vector<Obstacle> obstacles_;
+   //Obstacle obstacle_;
+   const float KObstacleSideLength = 40.0f;
+   const size_t kNumberOfObstacles = 3;
 
    // Game over text
    const std::string kGameOverText = "Game Over!";

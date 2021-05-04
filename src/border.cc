@@ -6,6 +6,9 @@ Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner) {
   container_top_left_corner_ = top_left_corner;
   container_bottom_right_corner_ = bottom_right_corner;
   score_ = 0;
+  for (size_t i = 0; i < kNumberOfObstacles; ++i) {
+    obstacles_.push_back(Obstacle());
+  }
 }
 
 snake::Border::Border(const glm::vec2& top_left_corner,
@@ -47,18 +50,20 @@ void Border::Display() {
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
 
   // Display obstacles
-  ci::gl::color(ci::Color(obstacle_.GetColor()));
-  ci::gl::drawSolidRect(ci::Rectf(obstacle_.GetPosition(),
-                                    vec2(obstacle_.GetPosition().x + obstacle_side_length_,
-                                         obstacle_.GetPosition().y + obstacle_side_length_)));
+//  ci::gl::color(ci::Color(obstacle_.GetColor()));
+//  ci::gl::drawSolidRect(ci::Rectf(obstacle_.GetPosition(),
+//                                    vec2(obstacle_.GetPosition().x + KObstacleSideLength,
+//                                         obstacle_.GetPosition().y + KObstacleSideLength)));
 
-//  for (int i = 0; i < obstacles_.size(); i ++) {
-//    ci::gl::color(ci::Color(obstacles_[i].GetColor()));
-//    ci::gl::drawSolidRect(ci::Rectf(obstacles_[i].GetPosition(),
-//                                    vec2(obstacles_[i].GetPosition().x + obstacle_side_length_,
-//                                         obstacles_[i].GetPosition().x + obstacle_side_length_)));
+  for (size_t i = 0; i < obstacles_.size(); ++i) {
+    ci::gl::color(ci::Color(obstacles_[i].GetColor()));
+    ci::gl::drawSolidRect(ci::Rectf(obstacles_[i].GetPosition(),
+                                    vec2(obstacles_[i].GetPosition().x + KObstacleSideLength,
+                                         obstacles_[i].GetPosition().y + KObstacleSideLength)));
+  }
+//  if (HasSnakeHitObstacle()) {
+//    --score_;
 //  }
-
 
   // Turn the treat to background color after being eaten
   if (HasSnakeEatenTreat()) {
@@ -88,6 +93,10 @@ void Border::AdvanceOneFrame() {
   if (is_game_over_) {
     return;
   }
+
+//  if (HasSnakeHitObstacle()) {
+//    --score_;
+//  }
 
   if (HasSnakeEatenTreat()) {
     ++score_;
@@ -140,8 +149,17 @@ bool Border::HasSnakeEatenTreat() {
   return false;
 }
 
+//bool Border::HasSnakeHitObstacle() {
+//  if (Utilities::GetDistance(snake_.GetPosition(), obstacle_.GetPosition()) <= kGameFlexibilityConstant) {
+//    return true;
+//  }
+//  return false;
+//}
+
 bool Border::IsGameOver() {
   if (HasSnakeColliedWithWall()) {
+    is_game_over_ = true;
+  } else if (score_ < 0) {
     is_game_over_ = true;
   }
   return is_game_over_;
