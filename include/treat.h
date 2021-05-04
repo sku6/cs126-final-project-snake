@@ -13,6 +13,11 @@ class Treat {
   Treat();
 
   /**
+   * Default constructor
+   */
+  Treat(glm::vec2 position);
+
+  /**
    * Create a new position for the treat
    * Increment score
    * @return New position for the treat
