@@ -66,3 +66,24 @@ TEST_CASE("Check if game is over") {
     REQUIRE(border.IsGameOver() == false);
   }
 }
+
+TEST_CASE("Check if snake eats the treat properly") {
+  // Set container boundaries
+  vec2 top_left(100, 100);
+  vec2 bottom_right(700, 700);
+  snake::Snake snake(vec2(200, 200));
+
+  SECTION("Snake eats a treat, increment score") {
+    snake::Treat treat(vec2(200,200));
+    Border border(top_left, bottom_right, snake, treat);
+    border.AdvanceOneFrame();
+    REQUIRE(border.HasSnakeEatenTreat() == true);
+  }
+
+  SECTION("Snake does not eat the treat") {
+    snake::Treat treat(vec2(300,200));
+    Border border(top_left, bottom_right, snake, treat);
+    border.AdvanceOneFrame();
+    REQUIRE(border.HasSnakeEatenTreat() == false);
+  }
+}
