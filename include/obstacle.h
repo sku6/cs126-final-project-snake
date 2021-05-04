@@ -2,6 +2,7 @@
 #pragma once
 
 #include <cinder/Color.h>
+
 #include "utilities.h"
 
 namespace snake {
@@ -18,10 +19,10 @@ class Obstacle {
   Obstacle(glm::vec2 position);
 
   /**
- * Create a new position for the obstacle
- * Decrement score if snake hits an obstacle
- * @return New position for the obstacle
- */
+   * Create a new position for the obstacle
+   * Decrement score if snake hits an obstacle
+   * @return New position for the obstacle
+   */
   glm::vec2 SetNewPosition();
 
   ci::Color GetColor() const;
@@ -32,4 +33,4 @@ class Obstacle {
   const char* kObstacleColor = "blue";
   const size_t KObstacleSideLength = 40;
 };
-}
+}  // namespace snake
