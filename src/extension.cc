@@ -27,7 +27,4 @@ void Extension::MoveLeft(){
 void Extension::MoveRight() {
   position_ = vec2(GetPosition().x+kMoveIncrement, GetPosition().y);
 }
-size_t Extension::GetKMoveIncrement() const {
-  return kMoveIncrement;
-}
 }
