@@ -2,8 +2,9 @@
 #pragma once
 
 #include <cinder/Color.h>
-#include "utilities.h"
+
 #include "extension.h"
+#include "utilities.h"
 
 namespace snake {
 class Snake {
@@ -17,12 +18,6 @@ class Snake {
    * Default constructor
    */
   Snake();
-
-  //TODO: delete this
-  /**
-   * Adds a new part to the end of the snake once the snake eats food
-   */
-  void addPart();
 
   /**
    * Make the snake move upwards
@@ -44,18 +39,12 @@ class Snake {
    */
   void MoveRight();
 
-  size_t GetSize() const;
   ci::Color GetColor() const;
   glm::vec2 GetPosition() const;
-  size_t GetKMoveIncrement() const;
-
-  void SetPosition(glm::vec2 position);
 
  private:
-  size_t size_;
   const char* kSnakeColor = "green";
   glm::vec2 position_;
   size_t kMoveIncrement = 1;
 };
 }  // namespace snake
-

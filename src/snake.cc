@@ -5,22 +5,12 @@ using glm::vec2;
 namespace snake {
 
 Snake::Snake() {
-  size_ = 1;
   position_ = vec2(Utilities::GenerateRandomNumberBetween(102, 698),
                    Utilities::GenerateRandomNumberBetween(102, 698));
 }
 
 Snake::Snake(const vec2& position) {
-  size_ = 1;
   position_ = position;
-}
-
-void Snake::addPart() {
-  ++size_;
-}
-
-size_t Snake::GetSize() const {
-  return size_;
 }
 
 ci::Color Snake::GetColor() const {
@@ -29,14 +19,6 @@ ci::Color Snake::GetColor() const {
 
 glm::vec2 Snake::GetPosition() const {
   return position_;
-}
-
-size_t Snake::GetKMoveIncrement() const {
-  return kMoveIncrement;
-}
-
-void Snake::SetPosition(glm::vec2 position) {
-  position_ = position;
 }
 
 void Snake::MoveUp() {
