@@ -92,6 +92,7 @@ class Border {
   // Create Snake
   Snake snake_;  // This calls default constructor
   const float snake_width_ = 10.0f;
+  const size_t kSegmentDistance = 15;
 
   // Create extensions_
   std::vector<Extension> extensions_;
