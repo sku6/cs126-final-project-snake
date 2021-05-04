@@ -59,13 +59,6 @@ void Border::Display() const {
   ci::gl::color(ci::Color(treat_.GetColor()));
   ci::gl::drawSolidCircle(treat_.GetPosition(), treat_radius_);
 
-  // Set the treat to a new position after being eaten
-//  if (HasSnakeEatenTreat()) {
-//    ++score_;
-//    ci::gl::color(ci::Color(treat_.GetColor()));
-//    ci::gl::drawSolidCircle(treat_.SetNewPosition(), treat_radius_);
-//  }
-
   // Display Obstacles
   for (auto& obstacle : obstacles_) {
     ci::gl::color(ci::Color(obstacle.GetColor()));
@@ -74,18 +67,6 @@ void Border::Display() const {
                   vec2(obstacle.GetPosition().x + KObstacleSideLength,
                        obstacle.GetPosition().y + KObstacleSideLength)));
   }
-
-//  // Set the Obstacles to a new position after being touched
-//  if (HasSnakeHitObstacle()) {
-//    --score_;
-//    for (auto& obstacle : obstacles_) {
-//      ci::gl::color(ci::Color(obstacle.GetColor()));
-//      ci::gl::drawSolidRect(
-//          ci::Rectf(obstacle.SetNewPosition(),
-//                    vec2(obstacle.SetNewPosition().x + KObstacleSideLength,
-//                         obstacle.SetNewPosition().y + KObstacleSideLength)));
-//    }
-//  }
 
   // Draw extensions_
   for (const auto& extension : extensions_) {
@@ -114,8 +95,8 @@ void Border::AdvanceOneFrame() {
 
   if (HasSnakeHitObstacle()) {
     --score_;
-    for (size_t i = 0; i < obstacles_.size(); ++i) {
-      obstacles_[i].SetNewPosition();
+    for (auto & obstacle : obstacles_) {
+      obstacle.SetNewPosition();
     }
   }
 
@@ -211,7 +192,7 @@ bool Border::IsGameOver() {
   return is_game_over_;
 }
 
-const Snake& Border::GetSnake() const {
+Snake& Border::GetSnake() {
   return snake_;
 }
 

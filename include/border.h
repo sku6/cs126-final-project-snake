@@ -75,7 +75,7 @@ class Border {
 
   void SetDirection(Direction direction);
 
-  const Snake& GetSnake() const;
+  Snake& GetSnake();
   size_t GetScore();
 
  private:
