@@ -13,7 +13,7 @@ class Treat {
   Treat();
 
   /**
-   * Default constructor
+   * Constructor that takes in a vec2 position as parameter
    */
   Treat(glm::vec2 position);
 
