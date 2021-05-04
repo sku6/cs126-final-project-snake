@@ -95,7 +95,7 @@ void Border::AdvanceOneFrame() {
 
   if (HasSnakeHitObstacle()) {
     --score_;
-    for (auto & obstacle : obstacles_) {
+    for (auto& obstacle : obstacles_) {
       obstacle.SetNewPosition();
     }
   }
@@ -105,17 +105,21 @@ void Border::AdvanceOneFrame() {
     treat_.SetNewPosition();
     if (snake_direction_ == Direction::kUp) {
       // vector<Type>.push_back(Type(x, y)) == vector<Type>.emplace_back(x, y)
-      extensions_.emplace_back(vec2(snake_.GetPosition().x,
-                         snake_.GetPosition().y - snake_.GetKMoveIncrement()));
+      extensions_.emplace_back(
+          vec2(snake_.GetPosition().x,
+               snake_.GetPosition().y - snake_.GetKMoveIncrement()));
     } else if (snake_direction_ == Direction::kDown) {
-      extensions_.emplace_back(vec2(snake_.GetPosition().x,
-                         snake_.GetPosition().y + snake_.GetKMoveIncrement()));
+      extensions_.emplace_back(
+          vec2(snake_.GetPosition().x,
+               snake_.GetPosition().y + snake_.GetKMoveIncrement()));
     } else if (snake_direction_ == Direction::kLeft) {
-      extensions_.emplace_back(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
-                         snake_.GetPosition().y));
+      extensions_.emplace_back(
+          vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
+               snake_.GetPosition().y));
     } else {
-      extensions_.emplace_back(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
-                         snake_.GetPosition().y));
+      extensions_.emplace_back(
+          vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
+               snake_.GetPosition().y));
     }
   }
 
@@ -157,21 +161,16 @@ bool Border::HasSnakeColliedWithWall() {
 }
 
 bool Border::HasSnakeEatenTreat() {
-  // TODO: You know what to do
-  if (Utilities::GetDistance(snake_.GetPosition(), treat_.GetPosition()) <=
-      kGameFlexibilityConstant) {
-    return true;
-  } else {
-    return false;
-  }
+  return Utilities::GetDistance(snake_.GetPosition(), treat_.GetPosition()) <=
+         kGameFlexibilityConstant;
 }
 
-bool Border::HasSnakeHitObstacle() const{
-  for (size_t i = 0; i < obstacles_.size(); ++i) {
+bool Border::HasSnakeHitObstacle() const {
+  for (const auto& obstacle : obstacles_) {
     if (Utilities::GetDistance(
             snake_.GetPosition(),
-            vec2(obstacles_[i].GetPosition().x + KObstacleSideLength / 2,
-                 obstacles_[i].GetPosition().y + KObstacleSideLength / 2)) <=
+            vec2(obstacle.GetPosition().x + KObstacleSideLength / 2,
+                 obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
         kGameFlexibilityConstant * 4) {
       return true;
     }
