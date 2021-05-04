@@ -7,7 +7,7 @@ Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner) {
   container_bottom_right_corner_ = bottom_right_corner;
   score_ = 0;
   for (size_t i = 0; i < kNumberOfObstacles; ++i) {
-    obstacles_.push_back(Obstacle());
+    obstacles_.emplace_back();
   }
 }
 
@@ -105,21 +105,17 @@ void Border::AdvanceOneFrame() {
     treat_.SetNewPosition();
     if (snake_direction_ == Direction::kUp) {
       // vector<Type>.push_back(Type(x, y)) == vector<Type>.emplace_back(x, y)
-      extensions_.push_back(
-          Extension(vec2(snake_.GetPosition().x,
-                         snake_.GetPosition().y - snake_.GetKMoveIncrement())));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x,
+                         snake_.GetPosition().y - snake_.GetKMoveIncrement()));
     } else if (snake_direction_ == Direction::kDown) {
-      extensions_.push_back(
-          Extension(vec2(snake_.GetPosition().x,
-                         snake_.GetPosition().y + snake_.GetKMoveIncrement())));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x,
+                         snake_.GetPosition().y + snake_.GetKMoveIncrement()));
     } else if (snake_direction_ == Direction::kLeft) {
-      extensions_.push_back(
-          Extension(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
-                         snake_.GetPosition().y)));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
+                         snake_.GetPosition().y));
     } else {
-      extensions_.push_back(
-          Extension(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
-                         snake_.GetPosition().y)));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
+                         snake_.GetPosition().y));
     }
   }
 
