@@ -105,21 +105,22 @@ void Border::AdvanceOneFrame() {
     treat_.SetNewPosition();
     if (snake_direction_ == Direction::kUp) {
       // vector<Type>.push_back(Type(x, y)) == vector<Type>.emplace_back(x, y)
-      extensions_.emplace_back(
-          vec2(snake_.GetPosition().x, snake_.GetPosition().y + kSegmentDistance));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x,
+                                    snake_.GetPosition().y + kSegmentDistance));
     } else if (snake_direction_ == Direction::kDown) {
-      extensions_.emplace_back(
-          vec2(snake_.GetPosition().x, snake_.GetPosition().y - kSegmentDistance));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x,
+                                    snake_.GetPosition().y - kSegmentDistance));
     } else if (snake_direction_ == Direction::kLeft) {
-      extensions_.emplace_back(
-          vec2(snake_.GetPosition().x + kSegmentDistance, snake_.GetPosition().y));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x + kSegmentDistance,
+                                    snake_.GetPosition().y));
     } else {
-      extensions_.emplace_back(
-          vec2(snake_.GetPosition().x - kSegmentDistance, snake_.GetPosition().y));
+      extensions_.emplace_back(vec2(snake_.GetPosition().x - kSegmentDistance,
+                                    snake_.GetPosition().y));
     }
   }
 
-  // If player press on the keyboard direction keys snake and extension segments move in that direction
+  // If player press on the keyboard direction keys snake and extension segments
+  // move in that direction
   snake_current_location_ = snake_.GetPosition();
   if (snake_direction_ == Direction::kUp) {
     snake_.MoveUp();
@@ -131,11 +132,11 @@ void Border::AdvanceOneFrame() {
     snake_.MoveRight();
   }
   // Make the extensions follow the snake
-  for (auto & extension : extensions_) {
+  for (auto& extension : extensions_) {
     vec2 temp = extension.GetPosition();
     extension.SetPosition(snake_current_location_);
     snake_current_location_ = temp;
-    }
+  }
 }
 
 void Border::SetDirection(Direction direction) {
@@ -172,11 +173,11 @@ bool Border::HasSnakeHitObstacle() const {
         kGameFlexibilityConstant * 4) {
       return true;
     }
-    for (auto & extension : extensions_) {
+    for (auto& extension : extensions_) {
       if (Utilities::GetDistance(
-          extension.GetPosition(),
-          vec2(obstacle.GetPosition().x + KObstacleSideLength / 2,
-               obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
+              extension.GetPosition(),
+              vec2(obstacle.GetPosition().x + KObstacleSideLength / 2,
+                   obstacle.GetPosition().y + KObstacleSideLength / 2)) <=
           kGameFlexibilityConstant * 4) {
         return true;
       }
@@ -186,8 +187,9 @@ bool Border::HasSnakeHitObstacle() const {
 }
 
 bool Border::HasSnakeHitItself() {
-  for (auto & extension : extensions_) {
-    if (Utilities::GetDistance(extension.GetPosition(), snake_.GetPosition()) <= 1) {
+  for (auto& extension : extensions_) {
+    if (Utilities::GetDistance(extension.GetPosition(), snake_.GetPosition()) <=
+        1) {
       return true;
     }
   }

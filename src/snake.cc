@@ -39,19 +39,19 @@ void Snake::SetPosition(glm::vec2 position) {
   position_ = position;
 }
 
-void Snake::MoveUp(){
-  position_ = vec2(GetPosition().x, GetPosition().y-kMoveIncrement);
+void Snake::MoveUp() {
+  position_ = vec2(GetPosition().x, GetPosition().y - kMoveIncrement);
 }
 
-void Snake::MoveDown(){
-  position_ = vec2(GetPosition().x, GetPosition().y+kMoveIncrement);
+void Snake::MoveDown() {
+  position_ = vec2(GetPosition().x, GetPosition().y + kMoveIncrement);
 }
 
-void Snake::MoveLeft(){
-  position_ = vec2(GetPosition().x-kMoveIncrement, GetPosition().y);
+void Snake::MoveLeft() {
+  position_ = vec2(GetPosition().x - kMoveIncrement, GetPosition().y);
 }
 
 void Snake::MoveRight() {
-  position_ = vec2(GetPosition().x+kMoveIncrement, GetPosition().y);
+  position_ = vec2(GetPosition().x + kMoveIncrement, GetPosition().y);
 }
 }  // namespace snake
