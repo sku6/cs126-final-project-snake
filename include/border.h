@@ -69,6 +69,11 @@ class Border {
   bool HasSnakeHitObstacle() const;
 
   /**
+   * Check if the snake head is touching its own body segments
+   */
+  bool HasSnakeHitItself();
+
+  /**
    * Update the variable is_game_over_
    */
   bool IsGameOver();

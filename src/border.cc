@@ -133,6 +133,7 @@ void Border::AdvanceOneFrame() {
     snake_current_location = snake_.GetPosition();
     snake_.MoveRight();
   }
+  // Make the extensions follow the snake
   for (auto & extension : extensions_) {
     vec2 temp = extension.GetPosition();
     extension.SetPosition(snake_current_location);
