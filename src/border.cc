@@ -37,7 +37,7 @@ Border::Border(const vec2& top_left_corner, const vec2& bottom_right_corner,
   obstacles_.push_back(obstacle);
 }
 
-void Border::Display() { // TODO: do whatever you must to make this const
+void Border::Display() const {
   // Display score
   ci::gl::drawStringCentered(
       kScoreText + std::to_string(score_),
@@ -75,24 +75,22 @@ void Border::Display() { // TODO: do whatever you must to make this const
                        obstacle.GetPosition().y + KObstacleSideLength)));
   }
 
-  // Set the Obstacles to a new position after being touched
-  if (HasSnakeHitObstacle()) {
-    --score_;
-    for (auto& obstacle : obstacles_) {
-      ci::gl::color(ci::Color(obstacle.GetColor()));
-      ci::gl::drawSolidRect(
-          ci::Rectf(obstacle.SetNewPosition(),
-                    vec2(obstacle.SetNewPosition().x + KObstacleSideLength,
-                         obstacle.SetNewPosition().y + KObstacleSideLength)));
-    }
-  }
+//  // Set the Obstacles to a new position after being touched
+//  if (HasSnakeHitObstacle()) {
+//    --score_;
+//    for (auto& obstacle : obstacles_) {
+//      ci::gl::color(ci::Color(obstacle.GetColor()));
+//      ci::gl::drawSolidRect(
+//          ci::Rectf(obstacle.SetNewPosition(),
+//                    vec2(obstacle.SetNewPosition().x + KObstacleSideLength,
+//                         obstacle.SetNewPosition().y + KObstacleSideLength)));
+//    }
+//  }
 
   // Draw extensions_
-  for (auto& extension : extensions_) {
-    // TODO: Make above const auto&
+  for (const auto& extension : extensions_) {
     ci::gl::color(ci::Color("blue"));
     ci::gl::drawSolidCircle(extension.GetPosition(), snake_width_);
-    // TODO: Make GetPosition() const in header and src
   }
 
   if (is_game_over_) {
@@ -116,6 +114,9 @@ void Border::AdvanceOneFrame() {
 
   if (HasSnakeHitObstacle()) {
     --score_;
+    for (size_t i = 0; i < obstacles_.size(); ++i) {
+      obstacles_[i].SetNewPosition();
+    }
   }
 
   if (HasSnakeEatenTreat()) {
@@ -188,7 +189,7 @@ bool Border::HasSnakeEatenTreat() {
   }
 }
 
-bool Border::HasSnakeHitObstacle() {
+bool Border::HasSnakeHitObstacle() const{
   for (size_t i = 0; i < obstacles_.size(); ++i) {
     if (Utilities::GetDistance(
             snake_.GetPosition(),
@@ -210,7 +211,7 @@ bool Border::IsGameOver() {
   return is_game_over_;
 }
 
-Snake& Border::GetSnake() {
+const Snake& Border::GetSnake() const {
   return snake_;
 }
 
