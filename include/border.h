@@ -92,13 +92,16 @@ class Border {
   // Create Snake
   Snake snake_;  // This calls default constructor
   const float snake_width_ = 10.0f;
-  const size_t kSegmentDistance = 15;
+  const size_t kSegmentDistance = 25;
 
   // Create extensions_
   std::vector<Extension> extensions_;
 
   // Direction of the snake
   Direction snake_direction_;
+
+  // Save snake head or segment's current location
+  glm::vec2 snake_current_location;
 
   // Create Treats
   Treat treat_;
