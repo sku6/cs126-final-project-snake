@@ -97,7 +97,7 @@ namespace snake {
 
    // Create Obstacles
    std::vector<Obstacle> obstacles_;
-   const float KObstacleSideLength = 40.0f;
+   const size_t KObstacleSideLength = 40;
    const size_t kNumberOfObstacles = 3;
 
    // Game over text
