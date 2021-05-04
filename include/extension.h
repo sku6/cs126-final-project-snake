@@ -35,6 +35,8 @@ class Extension {
    */
   void MoveRight();
 
+  size_t GetKMoveIncrement() const;
+
  private:
   glm::vec2 position_;
   size_t kMoveIncrement = 1;
