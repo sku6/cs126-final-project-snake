@@ -120,30 +120,24 @@ void Border::AdvanceOneFrame() {
   }
 
   if (snake_direction_ == Direction::kUp) {
-    snake_.SetPosition(
-        vec2(snake_.GetPosition().x,
-             snake_.GetPosition().y - snake_.GetKMoveIncrement()));
-    for (size_t i = 0; i < extensions_.size(); ++i) {
-      extensions_[i].MoveUp();
+    snake_.MoveUp();
+    for (auto & extension : extensions_) {
+      extension.MoveUp();
     }
   } else if (snake_direction_ == Direction::kDown) {
-    snake_.SetPosition(
-        vec2(snake_.GetPosition().x,
-             snake_.GetPosition().y + snake_.GetKMoveIncrement()));
-    for (size_t i = 0; i < extensions_.size(); ++i) {
-      extensions_[i].MoveDown();
+    snake_.MoveDown();
+    for (auto & extension : extensions_) {
+      extension.MoveDown();
     }
   } else if (snake_direction_ == Direction::kLeft) {
-    snake_.SetPosition(vec2(snake_.GetPosition().x - snake_.GetKMoveIncrement(),
-                            snake_.GetPosition().y));
-    for (size_t i = 0; i < extensions_.size(); ++i) {
-      extensions_[i].MoveLeft();
+    snake_.MoveLeft();
+    for (auto & extension : extensions_) {
+      extension.MoveLeft();
     }
   } else {
-    snake_.SetPosition(vec2(snake_.GetPosition().x + snake_.GetKMoveIncrement(),
-                            snake_.GetPosition().y));
-    for (size_t i = 0; i < extensions_.size(); ++i) {
-      extensions_[i].MoveRight();
+    snake_.MoveRight();
+    for (auto & extension : extensions_) {
+      extension.MoveRight();
     }
   }
 }
