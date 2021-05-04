@@ -10,9 +10,10 @@
 namespace snake {
  class Border {
   public:
-       /**
-        * Using the top left corner and the bottom right corner to create a box for the snake game
-        */
+   /**
+    * Using the top left corner and the bottom right corner to create a box for
+    * the snake game
+    */
    Border(const glm::vec2& top_left_corner,
            const glm::vec2& bottom_right_corner, Snake snake);
 
