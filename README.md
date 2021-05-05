@@ -7,9 +7,9 @@ Version: 1.0 <br>
 This is a classic game of snake in an app-like form.
 ***
 <h3>To run the project:</h3>
-1. clone the repo
-2. go into the final-project-sku6/apps folder
-3. run final_project_main in your terminal
+1. clone the repo <br>
+2. go into the final-project-sku6/apps folder <br>
+3. run final_project_main in your terminal <br>
 
 ***
 
@@ -21,12 +21,13 @@ This is a classic game of snake in an app-like form.
 
 ***
 <h3>Game over if...</h3>
-  * The snake hits the wall
-  * Score is below 0
-  * The snake touches its own body
+  * The snake hits the wall <br>
+  * Score is below 0 <br>
+  * The snake touches its own body <br>
   
  ***
 <h3>Controls</h3>
+
 | Key  | Action |
 | ------------- | ------------- |
 | Left arrow  | Move to the left  |
