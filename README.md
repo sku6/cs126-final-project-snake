@@ -5,7 +5,9 @@ Author: Serlina Ku <br>
 Language: C++ <br>
 Version: 1.0 <br>
 This is a classic game of snake in an app-like form.
+
 ***
+
 <h3>To run the project:</h3>
 1. clone the repo <br>
 2. go into the final-project-sku6/apps folder <br>
