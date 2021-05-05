@@ -1,11 +1,15 @@
 <h1>Welcome to Snake!</h1>
 
 **Description**
-***
 Author: Serlina Ku <br>
 Language: C++ <br>
 Version: 1.0 <br>
-This is a classic game of snake in an app-like form. To run the project just clone the repo, go into the Snake-game folder and run java Main in your terminal.
+This is a classic game of snake in an app-like form.
+***
+***To run the project: ***
+1. clone the repo
+2. go into the final-project-sku6/apps folder
+3. run final_project_main in your terminal
 
 ***
 
