@@ -17,7 +17,7 @@ This is a classic game of snake in an app-like form.
 
 | Colored Object | Representation | What does it do? | 
 | ------------- | ------------- | ------------- |
-| Green  | Snake  | The main object of the game |
+| Green dot/line | Snake  | The main object of the game |
 | Red dot  | Treat  | Increment one point, makes the snake longer |
 | Blue box  | Obstacles  | Decrement one point |
 
