@@ -2,9 +2,9 @@
 
 **Description**
 ***
-Author: Serlina Ku
-Language: C++
-Version: 1.0
+Author: Serlina Ku <br>
+Language: C++ <br>
+Version: 1.0 <br>
 This is a classic game of snake in an app-like form. To run the project just clone the repo, go into the Snake-game folder and run java Main in your terminal.
 
 ***
