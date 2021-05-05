@@ -1,12 +1,12 @@
 <h1>Welcome to Snake!</h1>
 
-**Description**
+<h3>Description</h3>
 Author: Serlina Ku <br>
 Language: C++ <br>
 Version: 1.0 <br>
 This is a classic game of snake in an app-like form.
 ***
-***To run the project: ***
+<h3>To run the project:</h3>
 1. clone the repo
 2. go into the final-project-sku6/apps folder
 3. run final_project_main in your terminal
@@ -19,15 +19,14 @@ This is a classic game of snake in an app-like form.
 | Red dot  | Treat  | Increment one point, makes the snake longer |
 | Blue box  | Obstacles  | Decrement one point |
 
-* Game over if...
+***
+<h3>Game over if...</h3>
   * The snake hits the wall
   * Score is below 0
   * The snake touches its own body
   
-  
-**Controls**
-
-
+ ***
+<h3>Controls</h3>
 | Key  | Action |
 | ------------- | ------------- |
 | Left arrow  | Move to the left  |
